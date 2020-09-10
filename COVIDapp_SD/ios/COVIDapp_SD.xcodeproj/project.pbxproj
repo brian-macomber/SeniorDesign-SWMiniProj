@@ -16,6 +16,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* COVIDapp_SDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* COVIDapp_SDTests.m */; };
+		437567A82509E710000C6C0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 437567A72509E710000C6C0E /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9FCF5190E7CF5FEB72B11F2C /* libPods-COVIDapp_SD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4232749F432CE961B13D3B /* libPods-COVIDapp_SD.a */; };
 		AC45F5931589D48F1643666B /* libPods-COVIDapp_SD-COVIDapp_SDTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF42265DD219144D3BEE763 /* libPods-COVIDapp_SD-COVIDapp_SDTests.a */; };
@@ -52,6 +53,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = COVIDapp_SD/main.m; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* COVIDapp_SD-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVIDapp_SD-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* COVIDapp_SD-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "COVIDapp_SD-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		437567A72509E710000C6C0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B5343FCB1C48607DAD9E117 /* Pods-COVIDapp_SD-COVIDapp_SDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDapp_SD-COVIDapp_SDTests.release.xcconfig"; path = "Target Support Files/Pods-COVIDapp_SD-COVIDapp_SDTests/Pods-COVIDapp_SD-COVIDapp_SDTests.release.xcconfig"; sourceTree = "<group>"; };
 		5204AA7C50E0373C8952B287 /* Pods-COVIDapp_SD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDapp_SD.debug.xcconfig"; path = "Target Support Files/Pods-COVIDapp_SD/Pods-COVIDapp_SD.debug.xcconfig"; sourceTree = "<group>"; };
 		530F8ED7E73FBA93DDD53541 /* Pods-COVIDapp_SD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-COVIDapp_SD.release.xcconfig"; path = "Target Support Files/Pods-COVIDapp_SD/Pods-COVIDapp_SD.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* COVIDapp_SD */ = {
 			isa = PBXGroup;
 			children = (
+				437567A72509E710000C6C0E /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -194,7 +197,6 @@
 				FA74548D0342F1E2721B8E8D /* Pods-COVIDapp_SD-tvOSTests.debug.xcconfig */,
 				FDB5CA802F91049E5CD120AD /* Pods-COVIDapp_SD-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -342,6 +344,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				437567A82509E710000C6C0E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

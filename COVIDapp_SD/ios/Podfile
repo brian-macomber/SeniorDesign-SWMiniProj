@@ -31,3 +31,5 @@ target 'COVIDapp_SD-tvOS' do
     # Pods for testing
   end
 end
+
+pod 'Firebase/Analytics'
