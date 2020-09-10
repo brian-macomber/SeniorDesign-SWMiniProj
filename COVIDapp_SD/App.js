@@ -1,10 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import 'react-native-gesture-handler';
 
 import React from 'react';
 import {
@@ -14,67 +8,79 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+const LoginScreen = ({navigation}) => {
+  return (
+    <View>
+      <Text style={styles.sectionTitle}>COVID-19</Text>
+      <Button
+        title="Go to the next page"
+        onPress={() => navigation.navigate('HomePage')}
+      />
+      <Text style={styles.nameFooter}>
+        App By: Brian Macomber & Carlos Padiha
+      </Text>
+    </View>
+  );
+};
+
+const HomePage = ({navigation}) => {
+  return (
+    <View>
+      <Text>This is the next page</Text>
+      {/* Couldn't get navigation to more than 2 pages to work */}
+      <Button
+        title="Questionnaire"
+        onPress={() => navigation.navigate('Questionnaire')}
+      />
+    </View>
+  );
+};
+
+const Questionnaire = () => {
+  // We can do a scrollview here
+  return <Text>This is the page for the Questionnaire</Text>;
+};
+
+const Status = () => {
+  return <Text>This is the page for the Status</Text>;
+};
+
+const Settings = () => {
+  return <Text>This is the settings page</Text>;
+};
 
 const App: () => React$Node = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits. This is a EDIT
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen name="HomePage" component={HomePage} />
+        <Stack.Screen name="Questionnaire" component={Questionnaire} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
+  container: {
     backgroundColor: Colors.lighter,
+    flex: 1,
   },
   engine: {
     position: 'absolute',
@@ -91,12 +97,16 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '600',
     color: Colors.black,
+    marginTop: 50,
+    textAlign: 'center',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
+  nameFooter: {
+    fontSize: 12,
     fontWeight: '400',
     color: Colors.dark,
+    marginTop: 700,
+    marginBottom: 50,
+    textAlign: 'center',
   },
   highlight: {
     fontWeight: '700',
