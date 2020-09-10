@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler';
+
 import React from 'react';
 import {
   SafeAreaView,
@@ -6,15 +8,10 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -27,7 +24,7 @@ const LoginScreen = ({navigation}) => {
       <Text style={styles.sectionTitle}>COVID-19</Text>
       <Button
         title="Go to the next page"
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('HomePage')}
       />
       <Text style={styles.nameFooter}>
         App By: Brian Macomber & Carlos Padiha
@@ -35,15 +32,16 @@ const LoginScreen = ({navigation}) => {
     </View>
   );
 };
-const HomePage = () => {
+
+const HomePage = ({navigation}) => {
   return (
     <View>
       <Text>This is the next page</Text>
       {/* Couldn't get navigation to more than 2 pages to work */}
-      {/* <Button
+      <Button
         title="Questionnaire"
         onPress={() => navigation.navigate('Questionnaire')}
-      /> */}
+      />
     </View>
   );
 };
@@ -66,13 +64,13 @@ const App: () => React$Node = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Login"
+          name="LoginScreen"
           component={LoginScreen}
           options={{
             headerShown: false,
           }}
         />
-        <Stack.Screen name="Home" component={HomePage} />
+        <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="Questionnaire" component={Questionnaire} />
       </Stack.Navigator>
     </NavigationContainer>
