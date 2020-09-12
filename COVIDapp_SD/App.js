@@ -9,6 +9,7 @@ import {
   Text,
   StatusBar,
   Button,
+  ImageBackground,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -20,15 +21,14 @@ const Stack = createStackNavigator();
 
 const LoginScreen = ({navigation}) => {
   return (
-    <View>
-      <Text style={styles.sectionTitle}>COVID-19</Text>
-      <Button
-        title="Go to the next page"
-        onPress={() => navigation.navigate('HomePage')}
-      />
-      <Text style={styles.nameFooter}>
-        App By: Brian Macomber & Carlos Padiha
-      </Text>
+    <View style={styles.container}>
+      <ImageBackground source={require('./appiphonelogin.png')} style={{width: '100%', height: '100%', flex: 1}}>
+        <Text style={styles.sectionTitle}>COVID-19</Text>
+        <Button
+          title="Go to the next page"
+          onPress={() => navigation.navigate('HomePage')}
+          />
+      </ImageBackground>
     </View>
   );
 };
