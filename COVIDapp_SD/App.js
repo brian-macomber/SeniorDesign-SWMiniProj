@@ -22,7 +22,7 @@ const Stack = createStackNavigator();
 const LoginScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('./appiphonelogin.png')} style={{width: '100%', height: '100%', flex: 1}}>
+      <ImageBackground source={require('./appiphonelogin.png')} style={{width: '100%', height: '100%', flex: 1, resizeMode: 'contain'}}>
         <Text style={styles.sectionTitle}>COVID-19</Text>
         <Button
           title="Go to the next page"
@@ -35,14 +35,16 @@ const LoginScreen = ({navigation}) => {
 
 const HomePage = ({navigation}) => {
   return (
-    <View>
+  <View style={styles.container}>
+    <ImageBackground source={require('./appiphonehomenqr.jpg')} style={{width: '100%', height: '100%', flex: 1, resizeMode: 'contain'}}>
       <Text>This is the next page</Text>
       {/* Couldn't get navigation to more than 2 pages to work */}
       <Button
         title="Questionnaire"
         onPress={() => navigation.navigate('Questionnaire')}
       />
-    </View>
+    </ImageBackground>
+  </View>
   );
 };
 
