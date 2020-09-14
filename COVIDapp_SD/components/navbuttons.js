@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffd435", //bgc color, can ffffff00 /fff435
     width: 52, //to cover length of text
     height: 36,
-    top: 13, //for settings
+    top: 17, //for settings
     left: 355,
     position: 'absolute',
     flex: 1
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffc435", //bgc color, can ffffff00 /fff435
     width: 210, //to cover length of text
     height: 63,
-    top: 40,
+    top: 45,
     left: 135,
     position: 'absolute',
     flex: 1
@@ -78,10 +78,10 @@ const styles = StyleSheet.create({
   },
   statusButtonContainer: {
     backgroundColor: "#fff435", //bgc color, can ffffff00 /fff435
-    width: 311, //to cover length of text
+    width: 309, //to cover length of text
     height: 50,
-    top: 232,
-    left: 10,
+    top: 263,
+    left: 12,
     position: 'absolute',
     flex: 1
     /*remember to check if these values change to other devices*/
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     height: 63,
     top: 640,
     left: 176,
-    position: 'absolute',
+    position: 'relative',
     flex: 1
     /*remember to check if these values change to other devices*/
   },
