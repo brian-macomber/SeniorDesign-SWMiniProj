@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     /*remember to check if these values change to other devices*/
   },
   facebookButtonContainer: {
-    backgroundColor: "#ffc435", //bgc color, can ffffff00 /fff435
+    backgroundColor: "#ffffff00", //bgc color, can ffffff00 /fff435
     paddingVertical: 11,
     paddingHorizontal: 0,
     width: 62, //to cover length of image
