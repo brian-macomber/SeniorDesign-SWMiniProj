@@ -59,30 +59,31 @@ const styles = StyleSheet.create({
   settingsButtonContainer: {
     backgroundColor: "#ffd435", //bgc color, can ffffff00 /fff435
     width: 52, //to cover length of text
-    height: 34,
+    height: 36,
     top: 13, //for settings
-    bottom: 450,
-    left: 353,
-    right: 10
+    left: 355,
+    position: 'absolute',
+    flex: 1
     /*remember to check if these values change to other devices*/
   },
   questionnaireButtonContainer: {
     backgroundColor: "#ffc435", //bgc color, can ffffff00 /fff435
     width: 210, //to cover length of text
     height: 63,
-    top: 0,
-    bottom: 400,
+    top: 40,
     left: 135,
-    right: 50
+    position: 'absolute',
+    flex: 1
     /*remember to check if these values change to other devices*/
   },
   statusButtonContainer: {
     backgroundColor: "#fff435", //bgc color, can ffffff00 /fff435
     width: 311, //to cover length of text
     height: 50,
-    top: 145,
-    bottom: 300,
+    top: 232,
     left: 10,
+    position: 'absolute',
+    flex: 1
     /*remember to check if these values change to other devices*/
   },
   facebookButtonContainer: {
@@ -91,7 +92,9 @@ const styles = StyleSheet.create({
     width: 62, //to cover length of image
     height: 63,
     top: 622,
-    left: 176
+    left: 176,
+    position: 'absolute',
+    flex: 1
     /*remember to check if these values change to other devices*/
   },
   googleButtonContainer: {
@@ -100,7 +103,9 @@ const styles = StyleSheet.create({
     width: 62, //to cover length of image
     height: 63,
     top: 640,
-    left: 176
+    left: 176,
+    position: 'absolute',
+    flex: 1
     /*remember to check if these values change to other devices*/
   },
   invisButtonText: {
