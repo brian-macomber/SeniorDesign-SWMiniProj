@@ -44,7 +44,7 @@ const LoginScreen = ({navigation}) => {
 const HomePage = ({navigation}) => {
   return (
   <View style={styles.container}>
-    <ImageBackground source={require('./backgroundfiles/appiphonehomenqr.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+    <ImageBackground source={require('./backgroundfiles/appiphonehomeqg.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
       <Text></Text>
       {/* Navigation is working between all pages -> Now need to check screen portability */}
       <SettingsButton
@@ -76,7 +76,13 @@ const Questionnaire = () => {
 };
 
 const Status = () => {
-  return <Text>This is the page for the Status</Text>;
+  return(
+    <View style={styles.container}>
+      <ImageBackground source={require('./backgroundfiles/appiphonebadgeg.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+        <Text>This is the page for the Status</Text>
+      </ImageBackground>
+    </View>
+  );
 };
 
 const Settings = () => {
