@@ -19,7 +19,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 //import custom buttons
-import {StatusButton, SettingsButton, QuestionnaireButton} from './components/navbuttons';
+import {FacebookButton, GoogleButton, StatusButton, SettingsButton, QuestionnaireButton} from './components/navbuttons';
 
 const Stack = createStackNavigator();
 
@@ -27,11 +27,16 @@ const LoginScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('./backgroundfiles/appiphonelogin.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
-        <Text style={styles.sectionTitle}>COVID-19</Text>
-        <Button
-          title="Go to the next page"
+        <Text></Text>
+        <FacebookButton
+          title="Facebook"
           onPress={() => navigation.navigate('HomePage')}
           />
+          {/*maybe this is not working because they do the same thing?*/}
+          <GoogleButton
+            title="Google"
+            onPress={() => navigation.navigate('HomePage')}
+            />
       </ImageBackground>
     </View>
   );
@@ -41,8 +46,8 @@ const HomePage = ({navigation}) => {
   return (
   <View style={styles.container}>
     <ImageBackground source={require('./backgroundfiles/appiphonehomenqr.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
-      <Text>Home Page</Text>
-      {/* Navigation is working between all pages -> Now need to Reposition the buttons and hopefully make them invisible */}
+      <Text></Text>
+      {/* Navigation is working between all pages -> Now need to check screen portability */}
       <SettingsButton
         title="Settings"
         onPress={() => navigation.navigate('Settings')}
@@ -70,7 +75,13 @@ const Status = () => {
 };
 
 const Settings = () => {
-  return <Text>This is the settings page</Text>;
+  return(
+    <View style={styles.container}>
+      <ImageBackground source={require('./backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+        <Text>This is the settings page</Text>
+      </ImageBackground>
+    </View>
+  );
 };
 
 const App: () => React$Node = () => {
