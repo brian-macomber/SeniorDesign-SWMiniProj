@@ -17,12 +17,13 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
+
 const Stack = createStackNavigator();
 
 const LoginScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('./appiphonelogin.png')} style={{width: '100%', height: '100%', flex: 1, resizeMode: 'contain'}}>
+      <ImageBackground source={require('./appiphonelogin.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
         <Text style={styles.sectionTitle}>COVID-19</Text>
         <Button
           title="Go to the next page"
@@ -36,8 +37,8 @@ const LoginScreen = ({navigation}) => {
 const HomePage = ({navigation}) => {
   return (
   <View style={styles.container}>
-    <ImageBackground source={require('./appiphonehomenqr.jpg')} style={{width: '100%', height: '100%', flex: 1, resizeMode: 'contain'}}>
-      <Text>This is the next page</Text>
+    <ImageBackground source={require('./appiphonehomenqr.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+      <Text>This is the Home page</Text>
       {/* Couldn't get navigation to more than 2 pages to work */}
       <Button
         title="Questionnaire"
