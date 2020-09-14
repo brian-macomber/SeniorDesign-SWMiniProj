@@ -44,6 +44,10 @@ const HomePage = ({navigation}) => {
         title="Questionnaire"
         onPress={() => navigation.navigate('Questionnaire')}
       />
+      <Button
+        title="Status"
+        onPress={() => navigation.navigate('Status')}
+      />
     </ImageBackground>
   </View>
   );
@@ -75,6 +79,7 @@ const App: () => React$Node = () => {
         />
         <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="Questionnaire" component={Questionnaire} />
+        <Stack.Screen name="Status" component={Status} />
       </Stack.Navigator>
     </NavigationContainer>
   );
