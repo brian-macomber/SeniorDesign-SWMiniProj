@@ -57,7 +57,7 @@ import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 /*need to make the buttons not borderless*/
 const styles = StyleSheet.create({
   settingsButtonContainer: {
-    backgroundColor: "#ffd435", //bgc color, can ffffff00 /fff435
+    backgroundColor: "#ffffff00", //bgc color, can ffffff00 /fff435
     width: 52, //to cover length of text
     height: 36,
     top: 17, //for settings
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     /*remember to check if these values change to other devices*/
   },
   questionnaireButtonContainer: {
-    backgroundColor: "#ffc435", //bgc color, can ffffff00 /fff435
+    backgroundColor: "#ffffff00", //bgc color, can ffffff00 /fff435
     width: 210, //to cover length of text
     height: 63,
     top: 45,
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     /*remember to check if these values change to other devices*/
   },
   statusButtonContainer: {
-    backgroundColor: "#fff435", //bgc color, can ffffff00 /fff435
+    backgroundColor: "#ffffff00", //bgc color, can ffffff00 /fff435
     width: 309, //to cover length of text
     height: 50,
     top: 263,
@@ -102,9 +102,9 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
     width: 62, //to cover length of image
     height: 63,
-    top: 640,
+    top: 698,
     left: 176,
-    position: 'relative',
+    position: 'absolute',
     flex: 1
     /*remember to check if these values change to other devices*/
   },
