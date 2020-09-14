@@ -44,7 +44,7 @@ const LoginScreen = ({navigation}) => {
 const HomePage = ({navigation}) => {
   return (
   <View style={styles.container}>
-    <ImageBackground source={require('./backgroundfiles/appiphonehomeqg.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+    <ImageBackground source={require('./backgroundfiles/appiphonehomeqg.png')} resizeMode='stretch' style={styles.imgBackg}>
       <Text></Text>
       {/* Navigation is working between all pages -> Now need to check screen portability */}
       <SettingsButton
@@ -68,7 +68,7 @@ const Questionnaire = () => {
   // We can do a scrollview here
   return(
     <View style={styles.container}>
-      <ImageBackground source={require('./backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+      <ImageBackground source={require('./backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={styles.imgBackg}>
         <Text>This is the page for the questionnaire</Text>
       </ImageBackground>
     </View>
@@ -78,7 +78,7 @@ const Questionnaire = () => {
 const Status = () => {
   return(
     <View style={styles.container}>
-      <ImageBackground source={require('./backgroundfiles/appiphonebadgeg.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+      <ImageBackground source={require('./backgroundfiles/appiphonebadgeg.png')} resizeMode='stretch' style={styles.imgBackg}>
         <Text>This is the page for the Status</Text>
       </ImageBackground>
     </View>
@@ -88,7 +88,7 @@ const Status = () => {
 const Settings = () => {
   return(
     <View style={styles.container}>
-      <ImageBackground source={require('./backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+      <ImageBackground source={require('./backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={styles.imgBackg}>
         <Text>This is the settings page</Text>
       </ImageBackground>
     </View>
@@ -138,9 +138,11 @@ const styles = StyleSheet.create({
     marginTop: 50,
     textAlign: 'center',
   },
-  highlight: {
-    fontWeight: '700',
-  },
+  imgBackg:{
+    width: '100%',
+    height: '100%',
+    flex: 1
+  }
 });
 
 export default App;

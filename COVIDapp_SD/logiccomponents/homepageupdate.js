@@ -14,24 +14,31 @@ class HomeUpdate{
 
   //Get Background From File According to Badgeid & refresh status
   getBG(){
-    if(refreshStatus = true){
-      if(badgeid == 'green'){
+    if(this.refreshStatus = true){
+      if(this.badgeid == 'green'){
+        return(
+          //green badge, dont need questionnaire
+          <View style={styles.container}>
+            <ImageBackground source={require('./backgroundfiles/appiphonehomeqg.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+              <Text></Text>
+            </ImageBackground>
+          </View>
+        );
+      }
+      else if(this.badgeid == 'yellow'){
         //green badge, dont need questionnaire
       }
-      else if(badgeid == 'yellow'){
-        //green badge, dont need questionnaire
-      }
-      else if(badgeid == 'red'){
+      else if(this.badgeid == 'red'){
         //red badge, dont need questionnaire
       }
-      else{
-        if(badgeid == 'green'){
+    else{
+        if(this.badgeid == 'green'){
           //green badge, need questionnaire
         }
-        else if(badgeid == 'yellow'){
+        else if(this.badgeid == 'yellow'){
           //green badge, need questionnaire
         }
-        else if(badgeid == 'red'){
+        else if(this.badgeid == 'red'){
           //red badge, need questionnaire
         }
       }
@@ -41,3 +48,10 @@ class HomeUpdate{
 }
 
 export default HomeUpdate;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: Colors.lighter,
+    flex: 1,
+  },
+});
