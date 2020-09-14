@@ -100,9 +100,9 @@ const App: () => React$Node = () => {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="HomePage" component={HomePage} />
-        <Stack.Screen name="Questionnaire" component={Questionnaire} />
-        <Stack.Screen name="Status" component={Status} />
+        <Stack.Screen name="HomePage" component={HomePage} options={{headerShown: false}} />
+        <Stack.Screen name="Questionnaire" component={Questionnaire} options={{headerShown: true}}/>
+        <Stack.Screen name="Status" component={Status} options={{headerShown: true}}/>
         <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
