@@ -39,7 +39,7 @@ const HomePage = ({navigation}) => {
   <View style={styles.container}>
     <ImageBackground source={require('./appiphonehomenqr.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
       <Text>This is the Home page</Text>
-      {/* Couldn't get navigation to more than 2 pages to work */}
+      {/* Navigation is working between all pages -> Now need to Reposition the buttons and hopefully make them invisible */}
       <Button
         title="Questionnaire"
         onPress={() => navigation.navigate('Questionnaire')}
@@ -47,6 +47,10 @@ const HomePage = ({navigation}) => {
       <Button
         title="Status"
         onPress={() => navigation.navigate('Status')}
+      />
+      <Button
+        title="Settings"
+        onPress={() => navigation.navigate('Settings')}
       />
     </ImageBackground>
   </View>
@@ -80,6 +84,7 @@ const App: () => React$Node = () => {
         <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="Questionnaire" component={Questionnaire} />
         <Stack.Screen name="Status" component={Status} />
+        <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
   );
