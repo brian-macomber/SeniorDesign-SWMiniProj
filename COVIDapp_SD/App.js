@@ -1,5 +1,4 @@
 import 'react-native-gesture-handler';
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -20,6 +19,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 //import custom buttons
 import {FacebookButton, GoogleButton, StatusButton, SettingsButton, QuestionnaireButton} from './components/navbuttons';
+
+//import screens
+import Questionnaire from './screens/Questionnaire';
+import CompletedQuestionnaire from './screens/CompletedQuestionnaire';
 
 const Stack = createStackNavigator();
 
@@ -64,6 +67,7 @@ const HomePage = ({navigation}) => {
   );
 };
 
+/*
 const Questionnaire = () => {
   // We can do a scrollview here
   return(
@@ -74,6 +78,7 @@ const Questionnaire = () => {
     </View>
   );
 };
+*/
 
 const Status = () => {
   return(
@@ -99,12 +104,9 @@ const App: () => React$Node = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="LoginScreen"
-          component={LoginScreen}
-          options={{
-            headerShown: false,
-          }}
+        <Stack.Screen name="LoginScreen"
+        component={LoginScreen}
+        options={{headerShown: false}}
         />
         <Stack.Screen name="HomePage" component={HomePage} options={{headerShown: false}} />
         <Stack.Screen name="Questionnaire" component={Questionnaire} options={{headerShown: true}}/>

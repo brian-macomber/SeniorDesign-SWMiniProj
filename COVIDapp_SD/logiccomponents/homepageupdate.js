@@ -19,7 +19,7 @@ class HomeUpdate{
         return(
           //green badge, dont need questionnaire
           <View style={styles.container}>
-            <ImageBackground source={require('./backgroundfiles/appiphonehomeqg.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+            <ImageBackground source={require('./backgroundfiles/appiphonehomeqg.png')} resizeMode='stretch' style={styles.imgBackg}>
               <Text></Text>
             </ImageBackground>
           </View>
@@ -54,4 +54,9 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.lighter,
     flex: 1,
   },
+  imgBackg:{
+    width: '100%',
+    height: '100%',
+    flex: 1
+  }
 });
