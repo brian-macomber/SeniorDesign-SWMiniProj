@@ -32,7 +32,6 @@ const LoginScreen = ({navigation}) => {
           title="Facebook"
           onPress={() => navigation.navigate('HomePage')}
           />
-          {/*maybe this is not working because they do the same thing?*/}
           <GoogleButton
             title="Google"
             onPress={() => navigation.navigate('HomePage')}
@@ -67,7 +66,13 @@ const HomePage = ({navigation}) => {
 
 const Questionnaire = () => {
   // We can do a scrollview here
-  return <Text>This is the page for the Questionnaire</Text>;
+  return(
+    <View style={styles.container}>
+      <ImageBackground source={require('./backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+        <Text>This is the page for the questionnaire</Text>
+      </ImageBackground>
+    </View>
+  );
 };
 
 const Status = () => {
