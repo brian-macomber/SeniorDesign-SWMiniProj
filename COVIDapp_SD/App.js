@@ -24,13 +24,14 @@ import {FacebookButton, GoogleButton, StatusButton, SettingsButton, Questionnair
 import Questionnaire from './screens/Questionnaire';
 import CompletedQuestionnaire from './screens/CompletedQuestionnaire';
 import Settings from './screens/Settings';
+import Status from './screens/Status';
 
 const Stack = createStackNavigator();
 
 const LoginScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('./backgroundfiles/appiphonelogin.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
+      <ImageBackground source={require('backgrounds/appiphonelogin.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
         <Text></Text>
         <FacebookButton
           title="Facebook"
@@ -48,7 +49,7 @@ const LoginScreen = ({navigation}) => {
 const HomePage = ({navigation}) => {
   return (
   <View style={styles.container}>
-    <ImageBackground source={require('./backgroundfiles/appiphonehomeqg.png')} resizeMode='stretch' style={styles.imgBackg}>
+    <ImageBackground source={require('backgrounds/appiphonehomeqg.png')} resizeMode='stretch' style={styles.imgBackg}>
       <Text></Text>
       {/* Navigation is working between all pages -> Now need to check screen portability */}
       <SettingsButton
@@ -65,16 +66,6 @@ const HomePage = ({navigation}) => {
       />
     </ImageBackground>
   </View>
-  );
-};
-
-const Status = () => {
-  return(
-    <View style={styles.container}>
-      <ImageBackground source={require('./backgroundfiles/appiphonebadgeg.png')} resizeMode='stretch' style={styles.imgBackg}>
-        <Text>This is the page for the Status</Text>
-      </ImageBackground>
-    </View>
   );
 };
 

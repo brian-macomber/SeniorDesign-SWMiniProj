@@ -26,8 +26,8 @@ export default class Settings extends Component {
         return (
           //update background layout/contructor color - done
                 <View style={styles.container}>
-                  <ImageBackground source={require('../backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={styles.imgBackg}>
-                    <Text>This is the settings page</Text>
+                  <ImageBackground source={require('backgrounds/appiphoneclean.png')} resizeMode='stretch' style={styles.imgBackg}>
+                    <Text></Text>
                   </ImageBackground>
                 </View>
         );
