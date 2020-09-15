@@ -25,49 +25,10 @@ import Questionnaire from './screens/Questionnaire';
 import CompletedQuestionnaire from './screens/CompletedQuestionnaire';
 import Settings from './screens/Settings';
 import Status from './screens/Status';
+import HomePage from './screens/HomePage';
+import LoginScreen from './screens/LoginScreen';
 
 const Stack = createStackNavigator();
-
-const LoginScreen = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <ImageBackground source={require('backgrounds/appiphonelogin.png')} resizeMode='stretch' style={{width: '100%', height: '100%', flex: 1}}>
-        <Text></Text>
-        <FacebookButton
-          title="Facebook"
-          onPress={() => navigation.navigate('HomePage')}
-          />
-          <GoogleButton
-            title="Google"
-            onPress={() => navigation.navigate('HomePage')}
-            />
-      </ImageBackground>
-    </View>
-  );
-};
-
-const HomePage = ({navigation}) => {
-  return (
-  <View style={styles.container}>
-    <ImageBackground source={require('backgrounds/appiphonehomeqg.png')} resizeMode='stretch' style={styles.imgBackg}>
-      <Text></Text>
-      {/* Navigation is working between all pages -> Now need to check screen portability */}
-      <SettingsButton
-        title="Settings"
-        onPress={() => navigation.navigate('Settings')}
-      />
-      <QuestionnaireButton
-        title="Questionnaire"
-        onPress={() => navigation.navigate('Questionnaire')}
-      />
-      <StatusButton
-        title="Status"
-        onPress={() => navigation.navigate('Status')}
-      />
-    </ImageBackground>
-  </View>
-  );
-};
 
 //
 
