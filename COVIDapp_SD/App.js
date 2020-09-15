@@ -20,6 +20,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 //import custom buttons
 import {FacebookButton, GoogleButton, StatusButton, SettingsButton, QuestionnaireButton} from './components/navbuttons';
 
+//firebase connection
+
+import firebase from './firebase.js'; //this import might  be wrong, import firebaseApp?
+
 //import screens
 import Questionnaire from './screens/Questionnaire';
 import CompletedQuestionnaire from './screens/CompletedQuestionnaire';
