@@ -111,7 +111,7 @@ const survey = [
     {
         questionType: 'SelectionGroup',
         questionText:
-            'Do you have any new loss of taste or smell?',
+            'Do you have any recent loss of taste or smell?',
         questionId: 'covidTaste',
         options: [
             {
@@ -155,7 +155,7 @@ export default class Questionnaire extends Component {
                 elevation: 5,
             },
             headerTintColor: '#fff',
-            headerTitle: 'Sample Survey',
+            headerTitle: 'Questionnaire',
             headerTitleStyle: {
                 flex: 1,
             }
@@ -275,8 +275,8 @@ export default class Questionnaire extends Component {
     render() {
         return (
           //update background layout/contructor color
-            <View style={[styles.background]}>
                 <View style={styles.container}>
+                  <ImageBackground source={require('../backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={styles.imgBackg}>
                     <SimpleSurvey
                         ref={(s) => { this.surveyRef = s; }}
                         survey={survey}
@@ -292,45 +292,26 @@ export default class Questionnaire extends Component {
                         onAnswerSubmitted={(answer) => this.onAnswerSubmitted(answer)}
                         renderInfo={this.renderInfoText}
                     />
-
+                    </ImageBackground>
                 </View>
-
-                <ScrollView style={styles.answersContainer}>
-                    <Text style={{textAlign:'center'}}>JSON output</Text>
-                    <Text>{this.state.answersSoFar}</Text>
-                </ScrollView>
-
-            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        minWidth: '70%',
-        maxWidth: '90%',
+        minWidth: '100%', //70
+        maxWidth: '100%', //90
         alignItems: 'stretch',
         justifyContent: 'center',
-
         elevation: 20,
         borderRadius: 10,
         flex: 1,
     },
-    answersContainer: {
-        width: '90%',
-        maxHeight: '20%',
-        marginTop: 50,
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        marginBottom: 20,
-        backgroundColor: 'white',
-        elevation: 20,
-        borderRadius: 10,
-    },
     surveyContainer: {
         width: 'auto',
         alignSelf: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white', //white
         borderBottomLeftRadius: 5,
         borderBottomRightRadius: 5,
         borderTopLeftRadius: 5,
@@ -338,18 +319,12 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         padding: 5,
         flexGrow: 0,
+        top: '47%',
     },
     selectionGroupContainer: {
         flexDirection: 'column',
         backgroundColor: 'white',
         alignContent: 'flex-end',
-    },
-    background: {
-        flex: 1,
-        minHeight: 800,
-        maxHeight: 800,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     questionText: {
         marginBottom: 20,

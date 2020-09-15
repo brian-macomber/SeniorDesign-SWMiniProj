@@ -67,19 +67,6 @@ const HomePage = ({navigation}) => {
   );
 };
 
-/*
-const Questionnaire = () => {
-  // We can do a scrollview here
-  return(
-    <View style={styles.container}>
-      <ImageBackground source={require('./backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={styles.imgBackg}>
-        <Text>This is the page for the questionnaire</Text>
-      </ImageBackground>
-    </View>
-  );
-};
-*/
-
 const Status = () => {
   return(
     <View style={styles.container}>
@@ -112,6 +99,7 @@ const App: () => React$Node = () => {
         <Stack.Screen name="Questionnaire" component={Questionnaire} options={{headerShown: true}}/>
         <Stack.Screen name="Status" component={Status} options={{headerShown: true}}/>
         <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="CompletedQuestionnaire" component={CompletedQuestionnaire}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

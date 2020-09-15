@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-const GREEN = 'rgba(141,196,63,1)';
 const PURPLE = 'rgba(108,48,237,1)';
-const defaultAnswers = { favoriteColor: 'nothing', favoriteNumber: '0', favoritePet: 'nothing' };
+const BLUE = 'rgb(65,105,225)';
+const defaultAnswers = { /*covidTest: 'no', covidCloseContact: 'no', covidBreath: 'no', covidFever: 'no',covidTroath: 'no', covidMuscle: 'no', covidTaste: 'no', covidNausea: 'no'*/};
 export default class CompletedQuestionnaire extends Component {
     static navigationOptions = () => {
         return {
             headerStyle: {
-                backgroundColor: GREEN,
+                backgroundColor: BLUE,
                 height: 40,
                 elevation: 5,
             },
             headerTintColor: '#fff',
-            headerTitle: 'Survey Results',
+            headerTitle: 'Questionnaire Results',
             headerTitleStyle: {
                 flex: 1,
             }
@@ -22,22 +22,20 @@ export default class CompletedQuestionnaire extends Component {
 
     render() {
         const answers = this.props.navigation.getParam('surveyAnswers', defaultAnswers);
-
         return (
             <View style={styles.background}>
                 <View style={styles.container}>
                     <ScrollView>
                         <Text style={styles.questionText}>The results are in!</Text>
-                        <Text style={styles.questionText}>Your favorite color: {answers.favoriteColor}</Text>
-                        <Text style={styles.questionText}>Your favorite number: {answers.favoriteNumber}</Text>
-                        <Text style={styles.questionText}>You said you can juggle {answers.jugglingBalls} balls at once{answers.jugglingBalls > 1 ? '!' : '.'}</Text>
-                        <Text style={styles.questionText}>Your favorite pet: {answers.favoritePet.value}</Text>
-                        <Text style={styles.questionText}>Your favorite foods: {answers.favoriteFoods[0].value} and {answers.favoriteFoods[1].value}</Text>
-                        <Text style={styles.questionText}>How you relax: {answers.relax[0].value} and {answers.relax[1].value}</Text>
-                        <Text style={styles.questionText}>When confronted with a radio button you picked: {answers.radio.value}</Text>
-                        <Text style={styles.questionText}>When given a default you chose: the {answers.singleDefault.value}</Text>
-                        <Text style={styles.questionText}>When given a multiple defaults you chose: the {answers.multipleDefaults[0].value} and the {answers.multipleDefaults[1].value}</Text>
-                        <Text>Raw JSON: {JSON.stringify(this.props.navigation.getParam('surveyAnswers', {}))}</Text>
+                        <Text style={styles.questionText}>covidTest: {answers.covidTest}</Text>
+                        <Text style={styles.questionText}>covidCloseContact: {answers.covidCloseContact}</Text>
+                        <Text style={styles.questionText}>covidBreath: {answers.covidBreath} </Text>
+                        <Text style={styles.questionText}>covidFever: {answers.covidFever}</Text>
+                        <Text style={styles.questionText}>covidTroath: {answers.covidTroath}</Text>
+                        <Text style={styles.questionText}>covidMuscle: {answers.covidMuscle}</Text>
+                        <Text style={styles.questionText}>covidTaste: {answers.covidTaste}</Text>
+                        <Text style={styles.questionText}>covidNausea: {answers.covidNausea}</Text>
+                        <Text>Raw JSON: {JSON.stringify(this.props.navigation.getParam('CompletedQuestionnaire', {}))}</Text>
                     </ScrollView>
                 </View>
             </View>
