@@ -21,12 +21,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {FacebookButton, GoogleButton, StatusButton, SettingsButton, QuestionnaireButton} from './components/navbuttons';
 
 //import screens
-import Questionnaire from 'screens/Questionnaire';
-import CompletedQuestionnaire from 'screens/CompletedQuestionnaire';
-import Settings from 'screens/Settings';
-import Status from 'screens/Status';
-import HomePage from 'screens/HomePage';
-import LoginScreen from 'screens/LoginScreen';
+import Questionnaire from './screens/Questionnaire';
+import CompletedQuestionnaire from './screens/CompletedQuestionnaire';
+import Settings from './screens/Settings';
+import Status from './screens/Status';
+import HomePage from './screens/HomePage';
+import LoginScreen from './screens/LoginScreen';
 
 const Stack = createStackNavigator();
 
