@@ -32,23 +32,43 @@ const Stack = createStackNavigator();
 
 //
 
-const App: () => React$Node = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="LoginScreen"
-        component={LoginScreen}
-        options={{headerShown: false}}
-        />
-        <Stack.Screen name="HomePage" component={HomePage} options={{headerShown: false}} />
-        <Stack.Screen name="Questionnaire" component={Questionnaire} options={{headerShown: true}}/>
-        <Stack.Screen name="Status" component={Status} options={{headerShown: true}}/>
-        <Stack.Screen name="Settings" component={Settings} />
-        <Stack.Screen name="CompletedQuestionnaire" component={CompletedQuestionnaire}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+class App extends Component {
+  constructor(props) {
+    super(props);
+    // this.database = firebase.database().ref();
+  }
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="LoginScreen"
+            component={LoginScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="HomePage"
+            component={HomePage}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Questionnaire"
+            component={Questionnaire}
+            options={{headerShown: true}}
+          />
+          <Stack.Screen
+            name="Status"
+            component={Status}
+            options={{headerShown: true}}
+          />
+          <Stack.Screen name="Settings" component={Settings} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
