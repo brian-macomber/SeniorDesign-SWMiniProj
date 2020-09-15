@@ -23,6 +23,7 @@ import {FacebookButton, GoogleButton, StatusButton, SettingsButton, Questionnair
 //import screens
 import Questionnaire from './screens/Questionnaire';
 import CompletedQuestionnaire from './screens/CompletedQuestionnaire';
+import Settings from './screens/Settings';
 
 const Stack = createStackNavigator();
 
@@ -77,15 +78,7 @@ const Status = () => {
   );
 };
 
-const Settings = () => {
-  return(
-    <View style={styles.container}>
-      <ImageBackground source={require('./backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={styles.imgBackg}>
-        <Text>This is the settings page</Text>
-      </ImageBackground>
-    </View>
-  );
-};
+//
 
 const App: () => React$Node = () => {
   return (
@@ -107,8 +100,11 @@ const App: () => React$Node = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.lighter,
-    flex: 1,
+      minWidth: '100%',
+      maxWidth: '100%',
+      alignItems: 'stretch',
+      justifyContent: 'center',
+      flex: 1,
   },
   engine: {
     position: 'absolute',

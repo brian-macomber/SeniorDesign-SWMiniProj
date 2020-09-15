@@ -168,6 +168,7 @@ export default class Questionnaire extends Component {
     }
 
     onSurveyFinished(answers) {
+        //also need to update the refresh flag for questionnaire done background
         const infoQuestionsRemoved = [...answers];
 
         // Convert from an array to a proper object. This won't work if you have duplicate questionIds
