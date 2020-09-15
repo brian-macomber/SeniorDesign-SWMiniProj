@@ -187,13 +187,56 @@ export default class Questionnaire extends Component {
     onAnswerSubmitted(answer) {
         this.setState({ answersSoFar: JSON.stringify(this.surveyRef.getAnswers(), 2) });
         switch (answer.questionId) {
-            case 'favoriteColor': {
-                if (COLORS.includes(answer.value.toLowerCase())) {
-                    this.setState({ backgroundColor: answer.value.toLowerCase() });
+            case 'covidTest': {
+                if (answer.value == 'yes') {
+                    //update badge id red
+                }
+                break;
+            }
+            case 'covidCloseContact': {
+                if (answer.value == 'yes') {
+                    //update badge id yellow
+                }
+                break;
+            }
+            case 'covidBreath': {
+                if (answer.value == 'yes') {
+                    //update badge id yellow
+                }
+                break;
+            }
+            case 'covidFever': {
+                if (answer.value == 'yes') {
+                    //update badge id yellow
+                }
+                break;
+            }
+            case 'covidTroath': {
+                if (answer.value == 'no') {
+                    //update badge id yellow
+                }
+                break;
+            }
+            case 'covidMuscle': {
+                if (answer.value == 'no') {
+                    //update badge id yellow
+                }
+                break;
+            }
+            case 'covidTaste': {
+                if (answer.value == 'no') {
+                    //update badge id yellow
+                }
+                break;
+            }
+            case 'covidNause': {
+                if (answer.value == 'no') {
+                    //update badge id yellow
                 }
                 break;
             }
             default:
+                //badge id green
                 break;
         }
     }
@@ -274,7 +317,7 @@ export default class Questionnaire extends Component {
 
     render() {
         return (
-          //update background layout/contructor color
+          //update background layout/contructor color - done
                 <View style={styles.container}>
                   <ImageBackground source={require('../backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={styles.imgBackg}>
                     <SimpleSurvey
