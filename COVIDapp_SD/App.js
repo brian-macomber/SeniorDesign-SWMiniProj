@@ -22,7 +22,7 @@ import {FacebookButton, GoogleButton, StatusButton, SettingsButton, Questionnair
 
 //firebase connection
 
-import firebaseApp from './firebase.js'; //this import might  be wrong, import firebaseApp?
+//import firebaseApp from './firebase.js'; //this import might  be wrong, import firebaseApp?
 
 //import screens
 import Questionnaire from './screens/Questionnaire';
