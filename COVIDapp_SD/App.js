@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, {Component} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -18,7 +18,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 //import custom buttons
-import {FacebookButton, GoogleButton, StatusButton, SettingsButton, QuestionnaireButton} from './components/navbuttons';
+import {
+  FacebookButton,
+  GoogleButton,
+  StatusButton,
+  SettingsButton,
+  QuestionnaireButton,
+} from './components/navbuttons';
 
 //firebase connection
 
@@ -34,13 +40,12 @@ import LoginScreen from './screens/LoginScreen';
 
 const Stack = createStackNavigator();
 
-//
-
 class App extends Component {
   constructor(props) {
     super(props);
     // this.database = firebase.database().ref();
   }
+
   render() {
     return (
       <NavigationContainer>
@@ -76,11 +81,11 @@ class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-      minWidth: '100%',
-      maxWidth: '100%',
-      alignItems: 'stretch',
-      justifyContent: 'center',
-      flex: 1,
+    minWidth: '100%',
+    maxWidth: '100%',
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    flex: 1,
   },
   engine: {
     position: 'absolute',
@@ -100,11 +105,11 @@ const styles = StyleSheet.create({
     marginTop: 50,
     textAlign: 'center',
   },
-  imgBackg:{
+  imgBackg: {
     width: '100%',
     height: '100%',
-    flex: 1
-  }
+    flex: 1,
+  },
 });
 
 export default App;
