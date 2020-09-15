@@ -7,6 +7,9 @@ import {
 } from 'react-native';
 
 class HomeUpdate{
+  constructor(props){
+    this.state
+  }
   constructor(badgeid, refreshStatus){
     this.badgeid = badgeid;
     this.refreshStatus = refreshStatus;

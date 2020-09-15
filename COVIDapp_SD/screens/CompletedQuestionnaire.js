@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Button } from 'react-native';
 
 const PURPLE = 'rgba(108,48,237,1)';
 const BLUE = 'rgb(65,105,225)';

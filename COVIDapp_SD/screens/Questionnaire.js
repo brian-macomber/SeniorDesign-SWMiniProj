@@ -320,7 +320,7 @@ export default class Questionnaire extends Component {
         return (
           //update background layout/contructor color - done
                 <View style={styles.container}>
-                  <ImageBackground source={require('../backgroundfiles/appiphoneclean.png')} resizeMode='stretch' style={styles.imgBackg}>
+                  <ImageBackground source={require('backgrounds/appiphoneclean.png')} resizeMode='stretch' style={styles.imgBackg}>
                     <SimpleSurvey
                         ref={(s) => { this.surveyRef = s; }}
                         survey={survey}
