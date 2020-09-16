@@ -32,23 +32,23 @@ import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
     )
   }
 
-  //facebook login button overlay
-  export function FacebookButton({title, onPress}){
+  //go to home button
+  export function HomeButton({title, onPress}){
     return(
       <TouchableOpacity onPress={onPress}>
-        <View style={styles.facebookButtonContainer}>
-          <Text style={styles.invisButtonText}>{title}</Text>
+        <View style={styles.homeButtonContainer}>
+          <Text style={styles.homeButtonText}>{title}</Text>
         </View>
       </TouchableOpacity>
     )
   }
 
-  //google login button overlay
-  export function GoogleButton({title, onPress}){
+  //go to logout button
+  export function LogoutButton({title, onPress}){
     return(
       <TouchableOpacity onPress={onPress}>
-        <View style={styles.googleButtonContainer}>
-          <Text style={styles.invisButtonText}>{title}</Text>
+        <View style={styles.logoutButtonContainer}>
+          <Text style={styles.logoutButtonText}>{title}</Text>
         </View>
       </TouchableOpacity>
     )
@@ -86,29 +86,43 @@ const styles = StyleSheet.create({
     flex: 1
     /*remember to check if these values change to other devices*/
   },
-  facebookButtonContainer: {
+  homeButtonContainer: {
     backgroundColor: "#ffffff00", //bgc color, can ffffff00 /fff435
     paddingVertical: 11,
-    width: 62, //to cover length of image
-    height: 63,
-    top: 622,
-    left: 176,
+    width: 100, //to cover length of image
+    height: 25,
+    top: 590,
     position: 'absolute',
+    alignSelf: 'center',
     flex: 1
     /*remember to check if these values change to other devices*/
   },
-  googleButtonContainer: {
+  logoutButtonContainer: {
     backgroundColor: "#ffffff00", //bgc color, can ffffff00 /fff435
     paddingVertical: 11,
-    width: 62, //to cover length of image
-    height: 63,
-    top: 698,
-    left: 176,
+    width: 100, //to cover length of image
+    height: 25,
+    top: 630,
     position: 'absolute',
+    alignSelf: 'center',
     flex: 1
     /*remember to check if these values change to other devices*/
   },
   invisButtonText: {
     color: "#ffffff00",
+  },
+  homeButtonText: {
+    color: "rgba(77, 175, 124, 1)",
+    fontSize: 16,
+    fontWeight: '600',
+    alignSelf: 'center',
+    position: 'absolute',
+  },
+  logoutButtonText: {
+    color: "rgba(207, 0, 15, 1)",
+    fontSize: 16,
+    fontWeight: '600',
+    alignSelf: 'center',
+    position: 'absolute',
   },
 })
