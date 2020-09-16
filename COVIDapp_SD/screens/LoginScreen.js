@@ -96,39 +96,36 @@ export default () => {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              {!loggedIn && (
-                <GoogleSigninButton
-                  style={{width: 192, height: 48}}
-                  size={GoogleSigninButton.Size.Wide}
-                  color={GoogleSigninButton.Color.Dark}
-                  onPress={this._signIn}
-                />
-              )}
-            </View>
-            <View style={styles.buttonContainer}>
-              {!user && <Text>You are currently logged out</Text>}
-              {user && (
-                <View>
-                  <Text>Welcome {user.displayName}</Text>
-                  <Button
-                    onPress={this.signOut}
-                    title="LogOut"
-                    color="red"></Button>
+          <View style={styles.container}>
+          <ImageBackground
+              source={require('backgrounds/appiphoneloginnb.png')}
+              resizeMode="stretch"
+              style={{width: '100%', height: '100%', flex: 1}}>
+              <View style={styles.sectionContainer}>
+                {!loggedIn && (
+                  <GoogleSigninButton
+                    style={{width: 192, height: 48, top: 584}}
+                    size={GoogleSigninButton.Size.Wide}
+                    color={GoogleSigninButton.Color.Dark}
+                    onPress={this._signIn}
+                    />
+                  )}
+                  </View>
+                <View style={styles.buttonContainer}>
+                {!user && <Text style = {{top: 584}}>You are currently logged out</Text>}
+                {user && (
+                  <View>
+                    <Text style = {{top: 584}}>Welcome {user.displayName}</Text>
+                    <Button
+                      style= {{top: 584}}
+                      onPress={this.signOut}
+                      title="LogOut"
+                      color="red"></Button>
+                      </View>
+                    )}
                 </View>
-              )}
-            </View>
+              </ImageBackground>
           </View>
-        </ScrollView>
-      </SafeAreaView>
     </>
   );
 };
@@ -176,6 +173,21 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     textAlign: 'right',
   },
+  imgBackg: {
+       width: '100%',
+       height: '100%',
+       flex: 1,
+       alignItems: 'stretch',
+  },
+  container: {
+       minWidth: '100%', //70
+       maxWidth: '100%', //90
+       alignItems: 'stretch',
+       justifyContent: 'center',
+       elevation: 20,
+       borderRadius: 10,
+       flex: 1,
+    },
 });
 
 // class LoginScreen extends Component {
@@ -226,6 +238,7 @@ const styles = StyleSheet.create({
 //     width: '100%',
 //     height: '100%',
 //     flex: 1,
+//     alignItems: 'stretch',
 //   },
 //   sectionContainer: {
 //     marginTop: 32,
