@@ -11,8 +11,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {
-  FacebookButton,
-  GoogleButton,
+  HomeButton,
+  LogoutButton,
   StatusButton,
   SettingsButton,
   QuestionnaireButton,
@@ -115,12 +115,16 @@ export default () => {
                 {!user && <Text style = {{top: 584}}>You are currently logged out</Text>}
                 {user && (
                   <View>
-                    <Text style = {{top: 584}}>Welcome {user.displayName}</Text>
+                    <Text style = {{top: 584, fontSize: 16}}>Welcome {user.displayName}</Text>
                     <Button
                       style= {{top: 584}}
                       onPress={this.signOut}
-                      title="LogOut"
+                      title="Log Out"
                       color="red"></Button>
+                      <HomeButton
+                        title="Go To Home"
+                        onPress={() => navigation.navigate('HomePage')}
+                      />
                       </View>
                     )}
                 </View>
