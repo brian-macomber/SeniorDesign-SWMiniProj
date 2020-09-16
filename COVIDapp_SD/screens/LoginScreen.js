@@ -25,6 +25,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { useNavigation } from '@react-navigation/native';
+
 import auth from '@react-native-firebase/auth';
 import {CLIENT_ID} from '@env';
 
@@ -37,6 +39,7 @@ import {
 export default () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState([]);
+  const navigation = useNavigation();
 
   _signIn = async () => {
     try {
