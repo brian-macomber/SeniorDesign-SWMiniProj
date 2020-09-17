@@ -42,9 +42,9 @@ export default class CompletedQuestionnaire extends Component {
                         <Button
                           title = "Home"
                           onPress = {() => this.props.navigation.navigate('HomePage')}/>
-                          <Button
-                            title = "Status"
-                            onPress = {() => this.props.navigation.navigate('Status')}/>
+                        <Button
+                          title = "Status"
+                          onPress = {() => this.props.navigation.navigate('Status')}/>
                     </ScrollView>
                 </View>
             </View>

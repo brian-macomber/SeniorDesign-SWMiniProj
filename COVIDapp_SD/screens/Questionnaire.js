@@ -164,9 +164,7 @@ export default class Questionnaire extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-          badgeColor: ''
-        };
+
     }
 
 
@@ -179,71 +177,65 @@ export default class Questionnaire extends Component {
         const badgeColor = {}; //what to do here? badge id is not updating AND/OR passing correctly
         for (const elem of infoQuestionsRemoved) { answersAsObj[elem.questionId] = elem.value; }
 
-        this.props.navigation.navigate('CompletedQuestionnaire', { surveyAnswers: answersAsObj, badgeId: 'string passes to other page' });
+        this.props.navigation.navigate('CompletedQuestionnaire', { surveyAnswers: answersAsObj, badgeId: this.badgeColor});
     }
-
-    /**
-     *  After each answer is submitted this function is called. Here you can take additional steps in response to the
-     *  user's answers. From updating a 'correct answers' counter to exiting out of an onboarding flow if the user is
-     *  is restricted (age, geo-fencing) from your app.
-     */
 
     //this is what rules the badge id for the day
     onAnswerSubmitted(answer) {
         switch (answer.questionId) {
           //set variable to receive badge color information
-
             case 'covidTest': {
-                if (answer.value == 'yes') {
+                if (answer.value === "yes") {
                     //update badge id red
-                    this.setState({badgeColor: 'red'});
+                    //this.setState({badgeColor: 'red'});
+
                 }
                 break;
             }
             case 'covidCloseContact': {
-                if (answer.value == 'yes') {
+                if (answer.value === 'yes') {
                     //update badge id yellow
                     this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidBreath': {
-                if (answer.value == 'yes') {
+                if (answer.value === 'yes') {
                     //update badge id yellow
                     this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidFever': {
-                if (answer.value == 'yes') {
+                if (answer.value === 'yes') {
                     //update badge id yellow
                     this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidTroath': {
-                if (answer.value == 'no') {
+                if (answer.value === 'no') {
                     //update badge id yellow
                     this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidMuscle': {
-                if (answer.value == 'no') {
+                if (answer.value === 'no') {
                     //update badge id yellow
                     this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidTaste': {
-                if (answer.value == 'no') {
+                if (answer.value === 'no') {
                     //update badge id yellow
                     this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidNause': {
-                if (answer.value == 'no') {
+                if (answer.value === 'no') {
                     //update badge id yellow
                     this.setState({badgeColor: 'yellow'});
                 }

@@ -28,7 +28,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 
 import auth from '@react-native-firebase/auth';
-import {CLIENT_ID} from '@env';
+import {CLIENT_ID, IOS_CLIENT_ID} from '@env';
 
 import {
   GoogleSignin,
@@ -76,9 +76,8 @@ export default () => {
   useEffect(() => {
     GoogleSignin.configure({
       scopes: ['email'], // what API you want to access on behalf of the user, default is email and profile
-      //webClientId: {CLIENT_ID},
-      //iosClientId: {IOS_CLIENT_ID},
-      //webClientId: Platform.OS === 'ios' ? {IOS_CLIENT_ID}
+      //iosClientId: IOS_CLIENT_ID,
+      webClientId: CLIENT_ID,
       offlineAccess: false, // if you want to access Google API on behalf of the user FROM YOUR SERVER
     });
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
@@ -122,7 +121,7 @@ export default () => {
                   <View>
                     <Text style = {{top: 584, fontSize: 16}}>Welcome {user.displayName}</Text>
                     <Button
-                      style= {styles.bottom}
+                      style= {{top: 584}}
                       onPress={this.signOut}
                       title="Log Out"
                       color="red"></Button>
@@ -196,11 +195,6 @@ const styles = StyleSheet.create({
        elevation: 20,
        borderRadius: 10,
        flex: 1,
-    },
-    bottom: {
-      flex: 1,
-      justifyContent: 'flex-end',
-      marginBottom: 36
     },
 });
 
