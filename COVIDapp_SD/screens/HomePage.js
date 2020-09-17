@@ -68,7 +68,9 @@ class HomePage extends Component {
           borderBottomColor: '#cccccc',
         }}>
         <Text>State Code: {item.state}</Text>
-        <Text>Total Cases: {item.total}</Text>
+        <Text>Total Positive Tests: {item.positive}</Text>
+        <Text>Total Negative Tests: {item.negative}</Text>
+        <Text>Data Reliability: {item.dataQualityGrade}</Text>
       </View>
     );
   };
