@@ -23,7 +23,7 @@ class HomeUpdate{
   //Get Background From File According to Badgeid & refresh status
   getBG(){
     if(this.refreshStatus = true){
-      if(this.badgeid == 'green'){
+      if(this.badgeId == 'green'){
         return(
           //green badge, dont need questionnaire
           <View style={styles.container}>

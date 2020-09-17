@@ -122,7 +122,7 @@ export default () => {
                   <View>
                     <Text style = {{top: 584, fontSize: 16}}>Welcome {user.displayName}</Text>
                     <Button
-                      style= {{top: 584}}
+                      style= {styles.bottom}
                       onPress={this.signOut}
                       title="Log Out"
                       color="red"></Button>
@@ -196,6 +196,11 @@ const styles = StyleSheet.create({
        elevation: 20,
        borderRadius: 10,
        flex: 1,
+    },
+    bottom: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      marginBottom: 36
     },
 });
 

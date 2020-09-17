@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, Button, ImageBackground, TouchableOpacity} from 'react-native';
+import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, Button, ImageBackground, TouchableOpacity, FlatList} from 'react-native';
 import {FacebookButton, GoogleButton, StatusButton, SettingsButton, QuestionnaireButton} from '../components/navbuttons';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -9,11 +9,24 @@ import {NavigationContainer} from '@react-navigation/native';
 class HomePage extends Component{
     constructor(props) {
       super(props)
+      this.state = {
+        items: [{title: 'Test 1'}, {title: 'Test 2'}],
+        isLoading: false
+      }
+    }
+
+    renderRow = ({item, index}) => {
+      return(
+        <View style = {{padding: 10, borderBottomWidth: 1, borderBottomColor: '#cccccc'}}>
+          <Text>{item.title}</Text>
+        </View>
+      )
     }
 
     render() {
         return (
           <View style={styles.container}>
+            {/*background image update still to be figured out*/}
             <ImageBackground source={require('backgrounds/appiphonehomeqg.png')} resizeMode='stretch' style={styles.imgBackg}>
               <Text></Text>
               {/* Navigation is working between all pages -> Now need to check screen portability */}
@@ -30,6 +43,11 @@ class HomePage extends Component{
                 onPress={() => this.props.navigation.navigate('Status')}
               />
             </ImageBackground>
+            <FlatList
+              style = {{top: '47%'}}
+              data = {this.state.items}
+              renderItem = {this.renderRow}
+              keyExtractor = {(i, k) => k.toString()}/>
           </View>
         );
     }
@@ -44,6 +62,7 @@ const styles = StyleSheet.create({
         maxWidth: '100%', //90
         alignItems: 'stretch',
         justifyContent: 'center',
+        //position: 'relative',
         elevation: 20,
         borderRadius: 10,
         flex: 1,
@@ -54,6 +73,7 @@ const styles = StyleSheet.create({
         alignContent: 'flex-end',
     },
     imgBackg:{
+      position: 'absolute',
       width: '100%',
       height: '100%',
       flex: 1
