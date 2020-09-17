@@ -10,9 +10,14 @@ class HomeUpdate{
   constructor(props){
     this.state
   }
-  constructor(badgeid, refreshStatus){
-    this.badgeid = badgeid;
-    this.refreshStatus = refreshStatus;
+
+  //const [, setQuestionnaire] = useState(false);
+  //const [questionnaire, setBadge] = useState([]);
+
+  // Handle questionnaire state changes
+  onQuestStateChanged(questionnaire) {
+    setBadge(questionnaire); //choses badge based on the questionnaire -implement
+    if (questionnaire) setQuestionnaire(true); //sets questionnaire answered -implement
   }
 
   //Get Background From File According to Badgeid & refresh status
@@ -46,7 +51,7 @@ class HomeUpdate{
         }
       }
     }
-    //return the background in question -> to be updated in App.js
+    //return the background in question -> to be updated in App.js or homepage file
   }
 }
 

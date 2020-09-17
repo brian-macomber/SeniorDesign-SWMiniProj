@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, Button, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
 import {FacebookButton, GoogleButton, StatusButton, SettingsButton, QuestionnaireButton} from '../components/navbuttons';
 import { SimpleSurvey } from 'react-native-simple-survey';
@@ -142,7 +142,7 @@ const survey = [
     },
     {
         questionType: 'Info',
-        questionText: 'Thank you for submitting your symptoms data! Tap finish to see your results!' //what if this went to the status page instead
+        questionText: 'Thank you for submitting your symptoms data! Tap finish to see your results!'
     },
 ];
 
@@ -164,8 +164,9 @@ export default class Questionnaire extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {answersSoFar: '' };
+        this.state = { badgeId: '' };
     }
+
 
     onSurveyFinished(answers) {
         //also need to update the refresh flag for questionnaire done background
@@ -186,58 +187,69 @@ export default class Questionnaire extends Component {
 
     //this is what rules the badge id for the day
     onAnswerSubmitted(answer) {
-        this.setState({ answersSoFar: JSON.stringify(this.surveyRef.getAnswers(), 2) });
+
         switch (answer.questionId) {
+          //set variable to receive badge color information
+
             case 'covidTest': {
                 if (answer.value == 'yes') {
                     //update badge id red
+                    this.setState({badgeId: 'red'});
                 }
                 break;
             }
             case 'covidCloseContact': {
                 if (answer.value == 'yes') {
                     //update badge id yellow
+                    this.setState({badgeId: 'yellow'});
                 }
                 break;
             }
             case 'covidBreath': {
                 if (answer.value == 'yes') {
                     //update badge id yellow
+                    this.setState({badgeId: 'yellow'});
                 }
                 break;
             }
             case 'covidFever': {
                 if (answer.value == 'yes') {
                     //update badge id yellow
+                    this.setState({badgeId: 'yellow'});
                 }
                 break;
             }
             case 'covidTroath': {
                 if (answer.value == 'no') {
                     //update badge id yellow
+                    this.setState({badgeId: 'yellow'});
                 }
                 break;
             }
             case 'covidMuscle': {
                 if (answer.value == 'no') {
                     //update badge id yellow
+                    this.setState({badgeId: 'yellow'});
                 }
                 break;
             }
             case 'covidTaste': {
                 if (answer.value == 'no') {
                     //update badge id yellow
+                    this.setState({badgeId: 'yellow'});
                 }
                 break;
             }
             case 'covidNause': {
                 if (answer.value == 'no') {
                     //update badge id yellow
+                    this.setState({badgeId: 'yellow'});
                 }
                 break;
             }
             default:
                 //badge id green
+                this.setState({badgeId: 'green'});
                 break;
         }
     }

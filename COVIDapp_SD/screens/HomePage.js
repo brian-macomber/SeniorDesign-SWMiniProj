@@ -4,6 +4,7 @@ import {FacebookButton, GoogleButton, StatusButton, SettingsButton, Questionnair
 
 import {NavigationContainer} from '@react-navigation/native';
 
+//might not need component -> put the updtae class
 
 class HomePage extends Component{
     constructor(props) {

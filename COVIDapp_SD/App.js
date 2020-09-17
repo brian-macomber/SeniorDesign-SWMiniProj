@@ -68,6 +68,11 @@ class App extends Component {
             options={{headerShown: true}}
           />
           <Stack.Screen
+            name="CompletedQuestionnaire"
+            component={CompletedQuestionnaire}
+            options={{headerShown: true}}
+          />
+          <Stack.Screen
             name="Status"
             component={Status}
             options={{headerShown: true}}

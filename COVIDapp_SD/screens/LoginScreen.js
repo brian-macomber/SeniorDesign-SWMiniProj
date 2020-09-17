@@ -76,7 +76,9 @@ export default () => {
   useEffect(() => {
     GoogleSignin.configure({
       scopes: ['email'], // what API you want to access on behalf of the user, default is email and profile
-      // webClientId: {CLIENT_ID},
+      //webClientId: {CLIENT_ID},
+      //iosClientId: {IOS_CLIENT_ID},
+      //webClientId: Platform.OS === 'ios' ? {IOS_CLIENT_ID}
       offlineAccess: false, // if you want to access Google API on behalf of the user FROM YOUR SERVER
     });
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
@@ -197,50 +199,6 @@ const styles = StyleSheet.create({
     },
 });
 
-// class LoginScreen extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <ImageBackground
-//           source={require('backgrounds/appiphonelogin.png')}
-//           resizeMode="stretch"
-//           style={{width: '100%', height: '100%', flex: 1}}>
-//           <FacebookButton
-//             title="Facebook"
-//             onPress={() => this.props.navigation.navigate('HomePage')}
-//           />
-//           <GoogleSigninButton
-//             style={{width: 192, height: 48}}
-//             size={GoogleSigninButton.Size.Wide}
-//             color={GoogleSigninButton.Color.Dark}
-//             onPress={this._signIn}
-//           />
-//         </ImageBackground>
-//       </View>
-//     );
-//   }
-// }
-
-// export default LoginScreen;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     minWidth: '100%', //70
-//     maxWidth: '100%', //90
-//     alignItems: 'stretch',
-//     justifyContent: 'center',
-//     elevation: 20,
-//     borderRadius: 10,
-//     flex: 1,
-//   },
-//   selectionGroupContainer: {
-//     flexDirection: 'column',
-//     backgroundColor: 'white',
-//     alignContent: 'flex-end',
-//   },
 //   imgBackg: {
 //     width: '100%',
 //     height: '100%',

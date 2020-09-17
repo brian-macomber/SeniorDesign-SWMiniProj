@@ -36,8 +36,14 @@ export default class CompletedQuestionnaire extends Component {
                         <Text style={styles.questionText}>Fatigue: {JSON.stringify(surveyAnswers.covidMuscle.value)}</Text>
                         <Text style={styles.questionText}>Loss of Taste or Smell: {JSON.stringify(surveyAnswers.covidTaste.value)}</Text>
                         <Text style={styles.questionText}>Nausea: {JSON.stringify(surveyAnswers.covidNausea.value)}</Text>
-                        <Text>/*This section wont be here, additionlly buttons for home and status needed*/</Text>
-                        <Text>Raw JSON: {JSON.stringify(this.props.route.params)}</Text>
+                        <Text>/*This section wont be here, verify passing of badge id*/</Text>
+                        <Text style = {styles.questionText}>BadgeColor: {} </Text>
+                        <Button
+                          title = "Home"
+                          onPress = {() => this.props.navigation.navigate('HomePage')}/>
+                          <Button
+                            title = "Status"
+                            onPress = {() => this.props.navigation.navigate('Status')}/>
                     </ScrollView>
                 </View>
             </View>
