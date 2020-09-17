@@ -60,16 +60,17 @@ class HomePage extends Component {
     );
   };
   renderItem = ({item}) => {
-    <View
-      style={{
-        padding: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#cccccc',
-      }}>
-      <Text>
-        {item.state}: {item.total}
-      </Text>
-    </View>;
+    return (
+      <View
+        style={{
+          padding: 10,
+          borderBottomWidth: 1,
+          borderBottomColor: '#cccccc',
+        }}>
+        <Text>State Code: {item.state}</Text>
+        <Text>Total Cases: {item.total}</Text>
+      </View>
+    );
   };
 
   render() {
@@ -100,7 +101,7 @@ class HomePage extends Component {
           style={{top: '47%'}}
           data={this.state.dataSource}
           ItemSeparatorComponent={this.FlatListItemSeparator}
-          renderItem={(item) => <Text>{item.total}</Text>}
+          renderItem={(item) => this.renderItem(item)}
           keyExtractor={(item) => item.state}
           refreshing={this.state.isLoading}
           onRefresh={this.getData}
