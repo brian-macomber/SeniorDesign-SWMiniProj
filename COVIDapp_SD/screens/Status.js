@@ -12,7 +12,7 @@ export default class Status extends Component {
         const {badgeId} = this.props.route.params
         console.log('passed badge id to status is:');
         console.log(badgeId);
-        const bgFile = statusPageUpdate({badgeId});
+        //const bgFile = statusPageUpdate({badgeId});
         return (
           //update background layout/contructor color - done
                 <View style={styles.container}>

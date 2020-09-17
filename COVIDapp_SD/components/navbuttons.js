@@ -89,9 +89,9 @@ const styles = StyleSheet.create({
   homeButtonContainer: {
     backgroundColor: "#ffffff00", //bgc color, can ffffff00 /fff435
     paddingVertical: 11,
-    width: 100, //to cover length of image
-    height: 25,
-    top: 590,
+    width: 110, //to cover length of image
+    height: 28,
+    top: '20%',
     position: 'absolute',
     alignSelf: 'center',
     flex: 1
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   homeButtonText: {
     color: "rgba(77, 175, 124, 1)",
-    fontSize: 16,
+    fontSize: 19,
     fontWeight: '600',
     alignSelf: 'center',
     position: 'absolute',

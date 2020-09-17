@@ -119,9 +119,8 @@ export default () => {
                 {!user && <Text style = {{top: 584}}>You are currently logged out</Text>}
                 {user && (
                   <View>
-                    <Text style = {{top: 584, fontSize: 16}}>Welcome {user.displayName}</Text>
+                    <Text style = {{fontSize: 16}}>Welcome {user.displayName}</Text>
                     <Button
-                      style= {{top: 584}}
                       onPress={this.signOut}
                       title="Log Out"
                       color="red"></Button>
@@ -158,6 +157,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignSelf: 'center',
+    top: '65%'
   },
   sectionTitle: {
     fontSize: 24,
