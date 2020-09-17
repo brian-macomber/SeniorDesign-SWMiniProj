@@ -3,34 +3,23 @@ import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, Button, Ima
 import {FacebookButton, GoogleButton, StatusButton, SettingsButton, QuestionnaireButton} from '../components/navbuttons';
 
 export default class Status extends Component {
-    static navigationOptions = () => {
-        return {
-            headerStyle: {
-                backgroundColor: BLUE,
-                height: 40,
-                elevation: 5,
-            },
-            headerTintColor: '#fff',
-            headerTitle: 'Status',
-            headerTitleStyle: {
-                flex: 1,
-            }
-        };
-    }
-
-    constructor() {
-      super()
+    constructor(props) {
+      super(props)
     }
 
     render() {
-        //const {badgeId} = this.props.route.params
-        //console.log('passed badge id to status is:');
-        //console.log(badgeId);
+        const {badgeId} = this.props.route.params
+        console.log('passed badge id to status is:');
+        console.log(badgeId);
         return (
           //update background layout/contructor color - done
                 <View style={styles.container}>
                   <ImageBackground source={require('backgrounds/appiphonebadgeg.png')} resizeMode='stretch' style={styles.imgBackg}>
-                    <Text></Text>
+                  <Text></Text>
+                  <Button
+                    style = {{alignSelf: 'center'}}
+                    title = "Return Home"
+                    onPress = {() => this.props.navigation.navigate('HomePage', {})}/>
                   </ImageBackground>
                 </View>
         );
@@ -51,6 +40,9 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: 'white',
         alignContent: 'flex-end',
+    },
+    buttonContainer:{
+
     },
     imgBackg:{
       width: '100%',

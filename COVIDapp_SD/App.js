@@ -97,7 +97,7 @@ class App extends Component {
           <Stack.Screen
             name="Status"
             component={Status}
-            options={{headerShown: true}}
+            options={{headerShown: false}}
           />
           <Stack.Screen name="Settings" component={Settings} />
         </Stack.Navigator>

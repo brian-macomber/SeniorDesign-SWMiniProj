@@ -71,7 +71,6 @@ class HomePage extends Component {
 
   render() {
     let {isLoading} = this.state;
-    //const {badgeId} = this.props.route.params
     return (
       <View style={styles.container}>
         {/*background image update still to be figured out*/}

@@ -40,10 +40,10 @@ export default class CompletedQuestionnaire extends Component {
                         <Text style = {styles.questionText}>Badge Color: {JSON.stringify(badgeId)} </Text>
                         <Button
                           title = "Home"
-                          onPress = {() => this.props.navigation.navigate('HomePage', {})}/>
+                          onPress = {() => this.props.navigation.navigate('HomePage', {badgeId})}/>
                         <Button
                           title = "Status"
-                          onPress = {() => this.props.navigation.navigate('Status', {})}/>
+                          onPress = {() => this.props.navigation.navigate('Status', {badgeId})}/>
                     </ScrollView>
                 </View>
             </View>
