@@ -28,7 +28,7 @@ class HomePage extends Component {
     super(props);
     this.state = {
       dataSource: [],
-      isLoading: false,
+      isLoading: true,
     };
   }
 
@@ -37,13 +37,14 @@ class HomePage extends Component {
   }
 
   getData = () => {
-    let apiURL = 'https://api.covidtracking.com/v1/states/current.json';
-    fetch(apiURL)
-      .then((res) => res)
+    fetch('https://api.covidtracking.com/v1/states/current.json')
       .then((res) => {
-        this.setState({dataSource: res});
+        this.setState({
+          dataSource: res,
+        });
       })
-      .finally(() => is.setState({isLoading: false}));
+      .finally(() => this.setState({isLoading: false}))
+      .catch((error) => console.log(error));
   };
   FlatListItemSeparator = () => {
     return (
@@ -56,7 +57,7 @@ class HomePage extends Component {
       />
     );
   };
-  renderRow = (data) => {
+  renderItem = (item) => {
     <View
       style={{
         padding: 10,
@@ -64,13 +65,12 @@ class HomePage extends Component {
         borderBottomColor: '#cccccc',
       }}>
       <Text>
-        {data.item.state}: {data.item.total}
+        {item.state}: {data.item.total}
       </Text>
     </View>;
   };
 
   render() {
-    let {isLoading} = this.state;
     //const {badgeId} = this.props.route.params
     return (
       <View style={styles.container}>
@@ -98,9 +98,9 @@ class HomePage extends Component {
           style={{top: '47%'}}
           data={this.state.dataSource}
           ItemSeparatorComponent={this.FlatListItemSeparator}
-          renderItem={(item) => this.renderRow(item)}
-          keyExtractor={(item) => item.hash}
-          refreshing={isLoading}
+          renderItem={(item) => this.renderItem(item)}
+          keyExtractor={(item) => item.state}
+          refreshing={this.state.isLoading}
           onRefresh={this.getData}
         />
       </View>
