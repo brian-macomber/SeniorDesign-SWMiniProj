@@ -121,7 +121,7 @@ export default () => {
             )}
             {user && (
               <View>
-                <Text style={{top: 584, fontSize: 16}}>
+                <Text style={{fontSize: 16}}>
                   Welcome {user.displayName}
                 </Text>
                 <Button
@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignSelf: 'center',
+    top: '65%'
   },
   logoutButton: {
     alignSelf: 'center',
