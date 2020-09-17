@@ -45,24 +45,32 @@ class HomePage extends Component {
       })
       .finally(() => is.setState({isLoading: false}));
   };
-
-  renderRow = (data) => {
+  FlatListItemSeparator = () => {
     return (
       <View
         style={{
-          padding: 10,
-          borderBottomWidth: 1,
-          borderBottomColor: '#cccccc',
-        }}>
-        <Text>
-          {data.item.state}: {data.item.total}
-        </Text>
-      </View>
+          height: 0.5,
+          width: '100%',
+          backgroundColor: 'rgba(0,0,0,0.5)',
+        }}
+      />
     );
+  };
+  renderRow = (data) => {
+    <View
+      style={{
+        padding: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#cccccc',
+      }}>
+      <Text>
+        {data.item.state}: {data.item.total}
+      </Text>
+    </View>;
   };
 
   render() {
-    let {items, isLoading} = this.state;
+    let {isLoading} = this.state;
     return (
       <View style={styles.container}>
         {/*background image update still to be figured out*/}
@@ -88,6 +96,7 @@ class HomePage extends Component {
         <FlatList
           style={{top: '47%'}}
           data={this.state.dataSource}
+          ItemSeparatorComponent={this.FlatListItemSeparator}
           renderItem={(item) => this.renderRow(item)}
           keyExtractor={(item) => item.hash}
           refreshing={isLoading}
