@@ -9,11 +9,26 @@ import {
 
   export function statusPageUpdate({badgeParam}){
     if(badgeParam == 'Green'){
-      const imageStatus = require('../backgroundfiles/appiphonebadgeg.png');
+      return(
+        <ImageBackground source={require('backgrounds/appiphonebadgeg.png')}
+        resizeMode="stretch"
+        style={styles.imgBackg}>
+        </ImageBackground>
+      )
     }else if(badgeParam == 'Yellow'){
-      const imageStatus = require('../backgroundfiles/appiphonebadgey.png');
+      return(
+        <ImageBackground source={require('backgrounds/appiphonebadgey.png')}
+        resizeMode="stretch"
+        style={styles.imgBackg}>
+        </ImageBackground>
+      )
     }else if(badgeParam == 'Red'){
-      const imageStatus = require('../backgroundfiles/appiphonebadger.png');
+      return(
+        <ImageBackground source={require('backgrounds/appiphonebadger.png')}
+        resizeMode="stretch"
+        style={styles.imgBackg}>
+        </ImageBackground>
+      )
     }
   }
 

@@ -18,7 +18,7 @@ export default class Status extends Component {
                 <View style={styles.container}>
                   <ImageBackground source={require('backgrounds/appiphonehomeqg.png')}
                   resizeMode="stretch"
-                  style={styles.imgBackg}>>
+                  style={styles.imgBackg}>
                   <Text></Text>
                   <Button
                     style = {{alignSelf: 'center'}}
