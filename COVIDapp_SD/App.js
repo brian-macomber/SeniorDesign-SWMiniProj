@@ -83,6 +83,7 @@ class App extends Component {
             name="HomePage"
             component={HomePage}
             options={{headerShown: false}}
+            initialParams={{badgeId: ''}}
           />
           <Stack.Screen
             name="Questionnaire"

@@ -75,12 +75,21 @@ class HomePage extends Component {
   };
 
   render() {
-    //const {badgeId} = this.props.route.params
+    //first app run this is undefined, fetch from server?
+    const {badgeId} = this.props.route.params
+    console.log(badgeId);
+    if(badgeId == 'Green' | badgeId == ''){
+      var toBackgroundHome = require('backgrounds/appiphonehomeqg.png');
+    }else if(badgeId == 'Yellow'){
+      var toBackgroundHome = require('backgrounds/appiphonehomeqy.png');
+    }else if(badgeId == 'Red'){
+      var toBackgroundHome = require('backgrounds/appiphonehomeqr.png');
+    }
     return (
       <View style={styles.container}>
         {/*background image update still to be figured out*/}
         <ImageBackground
-          source={require('backgrounds/appiphonehomeqg.png')}
+          source={toBackgroundHome}
           resizeMode="stretch"
           style={styles.imgBackg}>
           <Text></Text>
@@ -95,7 +104,7 @@ class HomePage extends Component {
           />
           <StatusButton
             title="Status"
-            onPress={() => this.props.navigation.navigate('Status', {})}
+            onPress={() => this.props.navigation.navigate('Status', {badgeId})}
           />
         </ImageBackground>
         <FlatList
