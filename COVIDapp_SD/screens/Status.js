@@ -12,11 +12,17 @@ export default class Status extends Component {
         const {badgeId} = this.props.route.params
         console.log('passed badge id to status is:');
         console.log(badgeId);
-        //const bgFile = statusPageUpdate({badgeId});
+        if(badgeId == 'Green'){
+          var toBackground = require('backgrounds/appiphonebadgeg.png');
+        }else if(badgeId == 'Yellow'){
+          var toBackground = require('backgrounds/appiphonebadgey.png');
+        }else if(badgeId == 'Red'){
+          var toBackground = require('backgrounds/appiphonebadger.png');
+        }
         return (
           //update background layout/contructor color - done
                 <View style={styles.container}>
-                  <ImageBackground source={require('backgrounds/appiphonebadgeg.png')}
+                  <ImageBackground source={toBackground}
                   resizeMode="stretch"
                   style={styles.imgBackg}>
                   <View style={styles.buttonContainer}>

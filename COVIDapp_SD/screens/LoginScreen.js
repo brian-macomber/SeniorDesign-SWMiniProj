@@ -117,7 +117,7 @@ export default () => {
           </View>
           <View style={styles.buttonContainer}>
             {!user && (
-              <Text style={{top: 584}}>You are currently logged out</Text>
+              <Text> You are currently logged out</Text>
             )}
             {user && (
               <View>

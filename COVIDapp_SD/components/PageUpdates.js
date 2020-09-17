@@ -8,21 +8,21 @@ import {
 
 
   export function statusPageUpdate({badgeParam}){
-    if(badgeParam == 'Green'){
+    if(JSON.stringfy(badgeParam) == 'Green'){
       return(
         <ImageBackground source={require('backgrounds/appiphonebadgeg.png')}
         resizeMode="stretch"
         style={styles.imgBackg}>
         </ImageBackground>
       )
-    }else if(badgeParam == 'Yellow'){
+    }else if(JSON.stringfy(badgeParam) == 'Yellow'){
       return(
         <ImageBackground source={require('backgrounds/appiphonebadgey.png')}
         resizeMode="stretch"
         style={styles.imgBackg}>
         </ImageBackground>
       )
-    }else if(badgeParam == 'Red'){
+    }else if(JSON.stringfy(badgeParam) == 'Red'){
       return(
         <ImageBackground source={require('backgrounds/appiphonebadger.png')}
         resizeMode="stretch"
