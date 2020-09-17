@@ -42,10 +42,19 @@ import LoginScreen from './screens/LoginScreen';
 const Stack = createStackNavigator();
 
 //get keys and whatnot from hidden env file
-import {API_KEY, AUTH_DOMAIN, DATABASE_URL,PROJ_ID, STORAGE_BUCKET, MESS_ID, APP_ID, MEAS_ID} from '@env';
+import {
+  API_KEY,
+  AUTH_DOMAIN,
+  DATABASE_URL,
+  PROJ_ID,
+  STORAGE_BUCKET,
+  MESS_ID,
+  APP_ID,
+  MEAS_ID,
+} from '@env';
 
 // Initialize Firebase
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: {API_KEY},
   authDomain: {AUTH_DOMAIN},
   databaseURL: {DATABASE_URL},
@@ -60,12 +69,11 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
-//var database = firebase.database();
-
 class App extends Component {
   constructor(props) {
     super(props);
-    //this.database = firebase.database();
+    this.database = firebase.database().ref('/Users');
+    // console.log(this.database.child('Brian'));
   }
 
   render() {
