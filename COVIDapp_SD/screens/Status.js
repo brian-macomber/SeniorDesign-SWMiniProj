@@ -16,14 +16,14 @@ export default class Status extends Component {
         return (
           //update background layout/contructor color - done
                 <View style={styles.container}>
-                  <ImageBackground source={require('backgrounds/appiphonehomeqg.png')}
+                  <ImageBackground source={require('backgrounds/appiphonebadgeg.png')}
                   resizeMode="stretch"
                   style={styles.imgBackg}>
-                  <Text></Text>
-                  <Button
-                    style = {{alignSelf: 'center'}}
-                    title = "Return Home"
-                    onPress = {() => this.props.navigation.navigate('HomePage', {})}/>
+                  <View style={styles.buttonContainer}>
+                    <Button
+                      title = "Return Home"
+                      onPress = {() => this.props.navigation.navigate('HomePage', {})}/>
+                  </View>
                   </ImageBackground>
                 </View>
         );
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
         alignContent: 'flex-end',
     },
     buttonContainer:{
-
+      alignSelf: 'center',
+      top: '9%'
     },
     imgBackg:{
       width: '100%',
