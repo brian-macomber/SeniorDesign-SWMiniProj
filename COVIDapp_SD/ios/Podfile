@@ -32,4 +32,5 @@ target 'COVIDapp_SD-tvOS' do
   end
 end
 
+pod 'Firebase/Auth'
 pod 'Firebase/Database'

@@ -72,7 +72,7 @@ if (!firebase.apps.length) {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.database = firebase.database().ref('/Users');
+    // this.database = firebase.database();
     // console.log(this.database.child('Brian'));
   }
 
