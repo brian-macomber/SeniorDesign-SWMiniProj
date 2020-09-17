@@ -22,6 +22,7 @@ export default class CompletedQuestionnaire extends Component {
 
     render() {
         const {surveyAnswers} = this.props.route.params
+        const {badgeId} = this.props.route.params
         return (
             <View style={styles.background}>
                 <View style={styles.container}>
@@ -37,7 +38,7 @@ export default class CompletedQuestionnaire extends Component {
                         <Text style={styles.questionText}>Loss of Taste or Smell: {JSON.stringify(surveyAnswers.covidTaste.value)}</Text>
                         <Text style={styles.questionText}>Nausea: {JSON.stringify(surveyAnswers.covidNausea.value)}</Text>
                         <Text>/*This section wont be here, verify passing of badge id*/</Text>
-                        <Text style = {styles.questionText}>BadgeColor: {} </Text>
+                        <Text style = {styles.questionText}>BadgeColor: {JSON.stringify(badgeId)} </Text>
                         <Button
                           title = "Home"
                           onPress = {() => this.props.navigation.navigate('HomePage')}/>

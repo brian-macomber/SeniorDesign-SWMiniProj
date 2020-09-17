@@ -10,9 +10,20 @@ class HomePage extends Component{
     constructor(props) {
       super(props)
       this.state = {
-        items: [{title: 'Test 1'}, {title: 'Test 2'}],
+        items: [],
         isLoading: false
       }
+    }
+
+    componentDidMount(){
+      this.getData()
+    }
+
+    getData = () => {
+      let apiURL = 'https://jsonplaceholder.typicode.com/posts'
+      fetch(apiURL).then(res => res.json()).then(res =>{
+        this.setState({items: res})
+      }).finally(()=>is.setState({isLoading: false}))
     }
 
     renderRow = ({item, index}) => {
@@ -24,6 +35,7 @@ class HomePage extends Component{
     }
 
     render() {
+        let {items, isLoading} = this.state;
         return (
           <View style={styles.container}>
             {/*background image update still to be figured out*/}
@@ -45,9 +57,12 @@ class HomePage extends Component{
             </ImageBackground>
             <FlatList
               style = {{top: '47%'}}
-              data = {this.state.items}
+              data = {items}
               renderItem = {this.renderRow}
-              keyExtractor = {(i, k) => k.toString()}/>
+              keyExtractor = {(i, k) => k.toString()}
+              refreshing={isLoading}
+              onRefresh={this.getData}
+              />
           </View>
         );
     }

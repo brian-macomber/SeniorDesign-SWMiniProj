@@ -164,7 +164,9 @@ export default class Questionnaire extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { badgeId: '' };
+        this.state = {
+          badgeColor: ''
+        };
     }
 
 
@@ -174,9 +176,10 @@ export default class Questionnaire extends Component {
 
         // Convert from an array to a proper object. This won't work if you have duplicate questionIds
         const answersAsObj = {};
+        const badgeColor = {}; //what to do here? badge id is not updating AND/OR passing correctly
         for (const elem of infoQuestionsRemoved) { answersAsObj[elem.questionId] = elem.value; }
 
-        this.props.navigation.navigate('CompletedQuestionnaire', { surveyAnswers: answersAsObj });
+        this.props.navigation.navigate('CompletedQuestionnaire', { surveyAnswers: answersAsObj, badgeId: 'string passes to other page' });
     }
 
     /**
@@ -187,69 +190,68 @@ export default class Questionnaire extends Component {
 
     //this is what rules the badge id for the day
     onAnswerSubmitted(answer) {
-
         switch (answer.questionId) {
           //set variable to receive badge color information
 
             case 'covidTest': {
                 if (answer.value == 'yes') {
                     //update badge id red
-                    this.setState({badgeId: 'red'});
+                    this.setState({badgeColor: 'red'});
                 }
                 break;
             }
             case 'covidCloseContact': {
                 if (answer.value == 'yes') {
                     //update badge id yellow
-                    this.setState({badgeId: 'yellow'});
+                    this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidBreath': {
                 if (answer.value == 'yes') {
                     //update badge id yellow
-                    this.setState({badgeId: 'yellow'});
+                    this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidFever': {
                 if (answer.value == 'yes') {
                     //update badge id yellow
-                    this.setState({badgeId: 'yellow'});
+                    this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidTroath': {
                 if (answer.value == 'no') {
                     //update badge id yellow
-                    this.setState({badgeId: 'yellow'});
+                    this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidMuscle': {
                 if (answer.value == 'no') {
                     //update badge id yellow
-                    this.setState({badgeId: 'yellow'});
+                    this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidTaste': {
                 if (answer.value == 'no') {
                     //update badge id yellow
-                    this.setState({badgeId: 'yellow'});
+                    this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             case 'covidNause': {
                 if (answer.value == 'no') {
                     //update badge id yellow
-                    this.setState({badgeId: 'yellow'});
+                    this.setState({badgeColor: 'yellow'});
                 }
                 break;
             }
             default:
                 //badge id green
-                this.setState({badgeId: 'green'});
+                this.setState({badgeColor: 'green'});
                 break;
         }
     }
