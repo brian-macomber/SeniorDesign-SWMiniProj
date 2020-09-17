@@ -25,7 +25,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 import auth from '@react-native-firebase/auth';
 import {CLIENT_ID, IOS_CLIENT_ID} from '@env';
@@ -34,7 +34,7 @@ import {
   GoogleSignin,
   GoogleSigninButton,
   statusCodes,
-} from 'react-native-google-signin';
+} from '@react-native-community/google-signin';
 
 export default () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -100,40 +100,44 @@ export default () => {
 
   return (
     <>
-          <View style={styles.container}>
-          <ImageBackground
-              source={require('backgrounds/appiphoneloginnb.png')}
-              resizeMode="stretch"
-              style={{width: '100%', height: '100%', flex: 1}}>
-              <View style={styles.sectionContainer}>
-                {!loggedIn && (
-                  <GoogleSigninButton
-                    style={{width: 192, height: 48, top: 584}}
-                    size={GoogleSigninButton.Size.Wide}
-                    color={GoogleSigninButton.Color.Dark}
-                    onPress={this._signIn}
-                    />
-                  )}
-                  </View>
-                <View style={styles.buttonContainer}>
-                {!user && <Text style = {{top: 584}}>You are currently logged out</Text>}
-                {user && (
-                  <View>
-                    <Text style = {{top: 584, fontSize: 16}}>Welcome {user.displayName}</Text>
-                    <Button
-                      style= {{top: 584}}
-                      onPress={this.signOut}
-                      title="Log Out"
-                      color="red"></Button>
-                      <HomeButton
-                        title="Go To Home"
-                        onPress={() => navigation.navigate('HomePage')}
-                      />
-                      </View>
-                    )}
-                </View>
-              </ImageBackground>
+      <View style={styles.container}>
+        <ImageBackground
+          source={require('backgrounds/appiphoneloginnb.png')}
+          resizeMode="stretch"
+          style={{width: '100%', height: '100%', flex: 1}}>
+          <View style={styles.sectionContainer}>
+            {!loggedIn && (
+              <GoogleSigninButton
+                style={{width: 192, height: 48, top: 584}}
+                size={GoogleSigninButton.Size.Wide}
+                color={GoogleSigninButton.Color.Dark}
+                onPress={this._signIn}
+              />
+            )}
           </View>
+          <View style={styles.buttonContainer}>
+            {!user && (
+              <Text style={{top: 584}}>You are currently logged out</Text>
+            )}
+            {user && (
+              <View>
+                <Text style={{top: 584, fontSize: 16}}>
+                  Welcome {user.displayName}
+                </Text>
+                <Button
+                  style={styles.buttonContainer}
+                  onPress={this.signOut}
+                  title="Log Out"
+                  color="red"></Button>
+                <HomeButton
+                  title="Go To Home"
+                  onPress={() => navigation.navigate('HomePage')}
+                />
+              </View>
+            )}
+          </View>
+        </ImageBackground>
+      </View>
     </>
   );
 };
@@ -159,6 +163,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     alignSelf: 'center',
   },
+  logoutButton: {
+    alignSelf: 'center',
+    marginTop: '400',
+  },
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
@@ -182,20 +190,20 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   imgBackg: {
-       width: '100%',
-       height: '100%',
-       flex: 1,
-       alignItems: 'stretch',
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    alignItems: 'stretch',
   },
   container: {
-       minWidth: '100%', //70
-       maxWidth: '100%', //90
-       alignItems: 'stretch',
-       justifyContent: 'center',
-       elevation: 20,
-       borderRadius: 10,
-       flex: 1,
-    },
+    minWidth: '100%', //70
+    maxWidth: '100%', //90
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    elevation: 20,
+    borderRadius: 10,
+    flex: 1,
+  },
 });
 
 //   imgBackg: {
