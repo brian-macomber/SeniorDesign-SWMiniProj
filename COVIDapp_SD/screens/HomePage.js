@@ -44,7 +44,6 @@ class HomePage extends Component {
           dataSource: responseJson,
           isLoading: false,
         });
-        console.log(this.state.dataSource[0]);
       })
       .catch((error) => console.log(error));
   };
