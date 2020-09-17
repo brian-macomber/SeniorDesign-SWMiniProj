@@ -37,8 +37,7 @@ export default class CompletedQuestionnaire extends Component {
                         <Text style={styles.questionText}>Fatigue: {JSON.stringify(surveyAnswers.covidMuscle.value)}</Text>
                         <Text style={styles.questionText}>Loss of Taste or Smell: {JSON.stringify(surveyAnswers.covidTaste.value)}</Text>
                         <Text style={styles.questionText}>Nausea: {JSON.stringify(surveyAnswers.covidNausea.value)}</Text>
-                        <Text>/*This section wont be here, verify passing of badge id*/</Text>
-                        <Text style = {styles.questionText}>BadgeColor: {JSON.stringify(badgeId)} </Text>
+                        <Text style = {styles.questionText}>Badge Color: {JSON.stringify(badgeId)} </Text>
                         <Button
                           title = "Home"
                           onPress = {() => this.props.navigation.navigate('HomePage')}/>
