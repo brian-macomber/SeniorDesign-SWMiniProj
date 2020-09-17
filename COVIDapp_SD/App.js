@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, {Component} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -28,7 +28,7 @@ import {
 
 //firebase connection
 
-import firebaseApp from './firebase.js'; //this import might  be wrong, import firebaseApp?
+//import firebaseApp from './firebase.js'; //this import might  be wrong, import firebaseApp?
 
 //import screens
 import Questionnaire from './screens/Questionnaire';
@@ -40,13 +40,12 @@ import LoginScreen from './screens/LoginScreen';
 
 const Stack = createStackNavigator();
 
-//
-
 class App extends Component {
   constructor(props) {
     super(props);
-    // this.database = firebaseApp.database();
+    // this.database = firebase.database().ref();
   }
+
   render() {
     return (
       <NavigationContainer>
@@ -66,6 +65,11 @@ class App extends Component {
           <Stack.Screen
             name="Questionnaire"
             component={Questionnaire}
+            options={{headerShown: true}}
+          />
+          <Stack.Screen
+            name="CompletedQuestionnaire"
+            component={CompletedQuestionnaire}
             options={{headerShown: true}}
           />
           <Stack.Screen
