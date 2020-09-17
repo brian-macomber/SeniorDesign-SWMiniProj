@@ -71,6 +71,7 @@ class HomePage extends Component {
 
   render() {
     let {isLoading} = this.state;
+    //const {badgeId} = this.props.route.params
     return (
       <View style={styles.container}>
         {/*background image update still to be figured out*/}
@@ -90,7 +91,7 @@ class HomePage extends Component {
           />
           <StatusButton
             title="Status"
-            onPress={() => this.props.navigation.navigate('Status')}
+            onPress={() => this.props.navigation.navigate('Status', {})}
           />
         </ImageBackground>
         <FlatList

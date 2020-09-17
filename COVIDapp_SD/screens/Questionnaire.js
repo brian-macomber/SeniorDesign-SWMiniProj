@@ -164,7 +164,7 @@ export default class Questionnaire extends Component {
 
     constructor(props) {
         super(props);
-        this.state={badgeColor: ''};
+        this.state={badgeColor: 'Green'};
 
     }
 
@@ -246,12 +246,8 @@ export default class Questionnaire extends Component {
             default:
               break;
         }
-        console.log(badgeColor);
+        //console.log(badgeColor);
         //badge id green
-        console.log('checking green');
-        if ((badgeColor !=  'Red') & (badgeColor != 'Yellow') & (badgeColor != '')){
-          this.setState({badgeColor: 'Green'});
-        }
     }
 
     /*

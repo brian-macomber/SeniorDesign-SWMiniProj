@@ -23,6 +23,9 @@ export default class Status extends Component {
     }
 
     render() {
+        //const {badgeId} = this.props.route.params
+        //console.log('passed badge id to status is:');
+        //console.log(badgeId);
         return (
           //update background layout/contructor color - done
                 <View style={styles.container}>
