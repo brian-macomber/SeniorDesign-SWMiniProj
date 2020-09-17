@@ -38,12 +38,14 @@ class HomePage extends Component {
 
   getData = () => {
     fetch('https://api.covidtracking.com/v1/states/current.json')
-      .then((res) => {
+      .then((response) => response.json())
+      .then((responseJson) => {
         this.setState({
-          dataSource: res,
+          dataSource: responseJson,
+          isLoading: false,
         });
+        console.log(this.state.dataSource[0]);
       })
-      .finally(() => this.setState({isLoading: false}))
       .catch((error) => console.log(error));
   };
   FlatListItemSeparator = () => {
@@ -57,7 +59,7 @@ class HomePage extends Component {
       />
     );
   };
-  renderItem = (item) => {
+  renderItem = ({item}) => {
     <View
       style={{
         padding: 10,
@@ -65,7 +67,7 @@ class HomePage extends Component {
         borderBottomColor: '#cccccc',
       }}>
       <Text>
-        {item.state}: {data.item.total}
+        {item.state}: {item.total}
       </Text>
     </View>;
   };
@@ -98,7 +100,7 @@ class HomePage extends Component {
           style={{top: '47%'}}
           data={this.state.dataSource}
           ItemSeparatorComponent={this.FlatListItemSeparator}
-          renderItem={(item) => this.renderItem(item)}
+          renderItem={(item) => <Text>{item.total}</Text>}
           keyExtractor={(item) => item.state}
           refreshing={this.state.isLoading}
           onRefresh={this.getData}
