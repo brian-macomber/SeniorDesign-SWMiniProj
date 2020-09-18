@@ -6,6 +6,12 @@ platform :ios, '10.0'
 target 'COVIDapp_SD' do
   config = use_native_modules!
 
+  #pods for app Firebase
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Core'
+  pod 'Firebase'
+
   use_react_native!(:path => config["reactNativePath"])
 
   target 'COVIDapp_SDTests' do

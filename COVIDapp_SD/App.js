@@ -54,20 +54,6 @@ import {
 } from '@env';
 
 // Initialize Firebase
-var firebaseConfig = {
-  apiKey: {API_KEY},
-  authDomain: {AUTH_DOMAIN},
-  databaseURL: {DATABASE_URL},
-  projectId: {PROJ_ID},
-  storageBucket: {STORAGE_BUCKET},
-  messagingSenderId: {MESS_ID},
-  appId: {APP_ID},
-  measurementId: {MEAS_ID},
-};
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
 
 class App extends Component {
   constructor(props) {
