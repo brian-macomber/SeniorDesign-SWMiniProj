@@ -10,6 +10,5 @@
 
 //self.ref = [[FIRDatabase database] reference];
 
-@property (strong, nonatomic) FIRDatabaseReference *ref;
 
 @end
