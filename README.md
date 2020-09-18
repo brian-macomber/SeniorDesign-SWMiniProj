@@ -15,18 +15,18 @@
 
 - Clone this repository to your local machine
 - Install Dependencies:
-  - Install node and watchman by using homebrew:
-    `brew install node`
+  - Install node and watchman by using homebrew:  
+    `brew install node`  
     `brew install watchman`
   - Install Xcode from the Mac App Store
-  - Install CocoaPods using Ruby:
+  - Install CocoaPods using Ruby:  
     `sudo gem install cocoapods`
-  - Navigate into `COVISapp_SD` and install package dependencies for yarn and npm:
-    `npm install`
+  - Navigate into `COVISapp_SD` and install package dependencies for yarn and npm:  
+    `npm install`  
     `yarn upgrade`
-  - Navigate into the project folder and install the pods required:
+  - Navigate into the project folder and install the pods required:  
     `cd ios/ && pod install`
-  - Return to the projecy folder and run the app using npx:
+  - Return to the projecy folder and run the app using npx:  
     `cd .. && npx react-native run-ios`
 
 Brian Macomber and Carlos Padilha
