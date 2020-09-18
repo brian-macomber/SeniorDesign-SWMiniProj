@@ -72,8 +72,17 @@ if (!firebase.apps.length) {
 class App extends Component {
   constructor(props) {
     super(props);
+<<<<<<< Updated upstream
     //this.database = firebase.database().ref('/Users');
     //console.log(this.database.child('Brian'));
+=======
+    //this.database = database()
+      //.ref('/Users')
+      //.on('U12345678', (snapshot) => {
+        //console.log('User data: ', snapshot.val());
+      //});
+    // console.log(this.database.child('U12345678'));
+>>>>>>> Stashed changes
   }
 
   render() {
