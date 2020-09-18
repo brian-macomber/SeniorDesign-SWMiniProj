@@ -53,28 +53,13 @@ import {
   MEAS_ID,
 } from '@env';
 
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: {API_KEY},
-  authDomain: {AUTH_DOMAIN},
-  databaseURL: {DATABASE_URL},
-  projectId: {PROJ_ID},
-  storageBucket: {STORAGE_BUCKET},
-  messagingSenderId: {MESS_ID},
-  appId: {APP_ID},
-  measurementId: {MEAS_ID},
-};
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
 
 class App extends Component {
   constructor(props) {
     super(props);
-    //this.database = firebase.database().ref('/Users');
-    //
+    //this.database = Database.database().ref('/Users');
     //console.log(this.database.child('Brian'));
+
   }
 
   render() {

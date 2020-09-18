@@ -25,12 +25,13 @@ end
 
 target 'COVIDapp_SD-tvOS' do
   # Pods for COVIDapp_SD-tvOS
+  pod 'Firebase'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
   target 'COVIDapp_SD-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
 end
-
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
