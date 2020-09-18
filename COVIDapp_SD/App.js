@@ -56,13 +56,29 @@ import {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.database = database()
-      .ref('/Users')
-      .on('U12345678', (snapshot) => {
-        console.log('User data: ', snapshot.val());
-      });
-    // console.log(this.database.child('U12345678'));
+    this.database = database().ref('/Users');
+    database()
+      .ref('/Users/user2')
+      .update({
+        name: 'Carlos',
+        age: 21,
+      })
+      .then(() => console.log('Data set.'));
   }
+
+  // User({userId}) {
+  //   useEffect(() => {
+  //     const onValueChange = database()
+  //       .ref(`/users/${userId}`)
+  //       .on('value', (snapshot) => {
+  //         console.log('User data: ', snapshot.val());
+  //       });
+
+  //     // Stop listening for updates when no longer required
+  //     return () =>
+  //       database().ref(`/users/${userId}`).off('value', onValueChange);
+  //   }, [userId]);
+  // }
 
   render() {
     return (
@@ -74,6 +90,7 @@ class App extends Component {
             options={{
               headerShown: false,
             }}
+            intiialParams={{userID: ''}}
           />
           <Stack.Screen
             name="HomePage"
