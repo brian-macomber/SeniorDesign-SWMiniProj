@@ -77,6 +77,7 @@ class HomePage extends Component {
   render() {
     //first app run this is undefined, fetch from server?
     const {badgeId} = this.props.route.params
+    console.log('passed badge id to home is:');
     console.log(badgeId);
     if(badgeId == 'Green' | badgeId == ''){
       var toBackgroundHome = require('backgrounds/appiphonehomeqg.png');
