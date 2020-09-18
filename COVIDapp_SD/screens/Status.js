@@ -12,7 +12,7 @@ export default class Status extends Component {
         const {badgeId} = this.props.route.params
         console.log('passed badge id to status is:');
         console.log(badgeId);
-        if(badgeId == 'Green'){
+        if(badgeId == 'Green' | badgeId == ''){
           var toBackground = require('backgrounds/appiphonebadgeg.png');
         }else if(badgeId == 'Yellow'){
           var toBackground = require('backgrounds/appiphonebadgey.png');
@@ -28,7 +28,7 @@ export default class Status extends Component {
                   <View style={styles.buttonContainer}>
                     <Button
                       title = "Return Home"
-                      onPress = {() => this.props.navigation.navigate('HomePage', {})}/>
+                      onPress = {() => this.props.navigation.navigate('HomePage', {badgeId})}/>
                   </View>
                   </ImageBackground>
                 </View>
