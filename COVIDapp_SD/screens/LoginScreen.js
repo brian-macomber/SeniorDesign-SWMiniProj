@@ -25,16 +25,16 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 import auth from '@react-native-firebase/auth';
-import {CLIENT_ID} from '@env';
+import {CLIENT_ID, IOS_CLIENT_ID} from '@env';
 
 import {
   GoogleSignin,
   GoogleSigninButton,
   statusCodes,
-} from 'react-native-google-signin';
+} from '@react-native-community/google-signin';
 
 export default () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -76,7 +76,8 @@ export default () => {
   useEffect(() => {
     GoogleSignin.configure({
       scopes: ['email'], // what API you want to access on behalf of the user, default is email and profile
-      // webClientId: {CLIENT_ID},
+      //iosClientId: IOS_CLIENT_ID,
+      webClientId: CLIENT_ID,
       offlineAccess: false, // if you want to access Google API on behalf of the user FROM YOUR SERVER
     });
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
@@ -99,40 +100,44 @@ export default () => {
 
   return (
     <>
-          <View style={styles.container}>
-          <ImageBackground
-              source={require('backgrounds/appiphoneloginnb.png')}
-              resizeMode="stretch"
-              style={{width: '100%', height: '100%', flex: 1}}>
-              <View style={styles.sectionContainer}>
-                {!loggedIn && (
-                  <GoogleSigninButton
-                    style={{width: 192, height: 48, top: 584}}
-                    size={GoogleSigninButton.Size.Wide}
-                    color={GoogleSigninButton.Color.Dark}
-                    onPress={this._signIn}
-                    />
-                  )}
-                  </View>
-                <View style={styles.buttonContainer}>
-                {!user && <Text style = {{top: 584}}>You are currently logged out</Text>}
-                {user && (
-                  <View>
-                    <Text style = {{top: 584, fontSize: 16}}>Welcome {user.displayName}</Text>
-                    <Button
-                      style= {{top: 584}}
-                      onPress={this.signOut}
-                      title="Log Out"
-                      color="red"></Button>
-                      <HomeButton
-                        title="Go To Home"
-                        onPress={() => navigation.navigate('HomePage')}
-                      />
-                      </View>
-                    )}
-                </View>
-              </ImageBackground>
+      <View style={styles.container}>
+        <ImageBackground
+          source={require('backgrounds/appiphoneloginnb.png')}
+          resizeMode="stretch"
+          style={{width: '100%', height: '100%', flex: 1}}>
+          <View style={styles.sectionContainer}>
+            {!loggedIn && (
+              <GoogleSigninButton
+                style={{width: 192, height: 48, top: 584}}
+                size={GoogleSigninButton.Size.Wide}
+                color={GoogleSigninButton.Color.Dark}
+                onPress={this._signIn}
+              />
+            )}
           </View>
+          <View style={styles.buttonContainer}>
+            {!user && (
+              <Text> You are currently logged out</Text>
+            )}
+            {user && (
+              <View>
+                <Text style={{fontSize: 16}}>
+                  Welcome {user.displayName}
+                </Text>
+                <Button
+                  style={styles.buttonContainer}
+                  onPress={this.signOut}
+                  title="Log Out"
+                  color="red"></Button>
+                <HomeButton
+                  title="Go To Home"
+                  onPress={() => navigation.navigate('HomePage')}
+                />
+              </View>
+            )}
+          </View>
+        </ImageBackground>
+      </View>
     </>
   );
 };
@@ -157,6 +162,11 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignSelf: 'center',
+    top: '65%'
+  },
+  logoutButton: {
+    alignSelf: 'center',
+    marginTop: '400',
   },
   sectionTitle: {
     fontSize: 24,
@@ -181,66 +191,22 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   imgBackg: {
-       width: '100%',
-       height: '100%',
-       flex: 1,
-       alignItems: 'stretch',
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    alignItems: 'stretch',
   },
   container: {
-       minWidth: '100%', //70
-       maxWidth: '100%', //90
-       alignItems: 'stretch',
-       justifyContent: 'center',
-       elevation: 20,
-       borderRadius: 10,
-       flex: 1,
-    },
+    minWidth: '100%', //70
+    maxWidth: '100%', //90
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    elevation: 20,
+    borderRadius: 10,
+    flex: 1,
+  },
 });
 
-// class LoginScreen extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <ImageBackground
-//           source={require('backgrounds/appiphonelogin.png')}
-//           resizeMode="stretch"
-//           style={{width: '100%', height: '100%', flex: 1}}>
-//           <FacebookButton
-//             title="Facebook"
-//             onPress={() => this.props.navigation.navigate('HomePage')}
-//           />
-//           <GoogleSigninButton
-//             style={{width: 192, height: 48}}
-//             size={GoogleSigninButton.Size.Wide}
-//             color={GoogleSigninButton.Color.Dark}
-//             onPress={this._signIn}
-//           />
-//         </ImageBackground>
-//       </View>
-//     );
-//   }
-// }
-
-// export default LoginScreen;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     minWidth: '100%', //70
-//     maxWidth: '100%', //90
-//     alignItems: 'stretch',
-//     justifyContent: 'center',
-//     elevation: 20,
-//     borderRadius: 10,
-//     flex: 1,
-//   },
-//   selectionGroupContainer: {
-//     flexDirection: 'column',
-//     backgroundColor: 'white',
-//     alignContent: 'flex-end',
-//   },
 //   imgBackg: {
 //     width: '100%',
 //     height: '100%',

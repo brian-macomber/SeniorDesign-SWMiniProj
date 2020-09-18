@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, Button, ImageBackground, TouchableOpacity, TextInput } from 'react-native';
 import {FacebookButton, GoogleButton, StatusButton, SettingsButton, QuestionnaireButton} from '../components/navbuttons';
 import { SimpleSurvey } from 'react-native-simple-survey';
@@ -142,7 +142,7 @@ const survey = [
     },
     {
         questionType: 'Info',
-        questionText: 'Thank you for submitting your symptoms data! Tap finish to see your results!' //what if this went to the status page instead
+        questionText: 'Thank you for submitting your symptoms data! Tap finish to see your results!'
     },
 ];
 
@@ -164,8 +164,10 @@ export default class Questionnaire extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {answersSoFar: '' };
+        this.state={badgeColor: 'Green'};
+
     }
+
 
     onSurveyFinished(answers) {
         //also need to update the refresh flag for questionnaire done background
@@ -173,74 +175,88 @@ export default class Questionnaire extends Component {
 
         // Convert from an array to a proper object. This won't work if you have duplicate questionIds
         const answersAsObj = {};
+        const {badgeColor} = this.state;
         for (const elem of infoQuestionsRemoved) { answersAsObj[elem.questionId] = elem.value; }
 
-        this.props.navigation.navigate('CompletedQuestionnaire', { surveyAnswers: answersAsObj });
+        this.props.navigation.navigate('CompletedQuestionnaire', { surveyAnswers: answersAsObj, badgeId: badgeColor});
     }
-
-    /**
-     *  After each answer is submitted this function is called. Here you can take additional steps in response to the
-     *  user's answers. From updating a 'correct answers' counter to exiting out of an onboarding flow if the user is
-     *  is restricted (age, geo-fencing) from your app.
-     */
 
     //this is what rules the badge id for the day
     onAnswerSubmitted(answer) {
-        this.setState({ answersSoFar: JSON.stringify(this.surveyRef.getAnswers(), 2) });
+        const {badgeColor} = this.state;
         switch (answer.questionId) {
+          //set variable to receive badge color information
             case 'covidTest': {
-                if (answer.value == 'yes') {
+                if (answer.value.value === 'yes') {
                     //update badge id red
+                    this.setState({badgeColor: 'Red'});
+
                 }
                 break;
             }
             case 'covidCloseContact': {
-                if (answer.value == 'yes') {
+                if (answer.value.value === 'yes' & badgeColor != 'Red') {
                     //update badge id yellow
+                    this.setState({badgeColor: 'Yellow'});
                 }
                 break;
             }
             case 'covidBreath': {
-                if (answer.value == 'yes') {
+                if (answer.value.value === 'yes' & badgeColor != 'Red') {
                     //update badge id yellow
+                    this.setState({badgeColor: 'Yellow'});
                 }
                 break;
             }
             case 'covidFever': {
-                if (answer.value == 'yes') {
+                if (answer.value.value === 'yes' & badgeColor != 'Red') {
                     //update badge id yellow
+                    this.setState({badgeColor: 'Yellow'});
                 }
                 break;
             }
             case 'covidTroath': {
-                if (answer.value == 'no') {
+                if (answer.value.value === 'yes' & badgeColor != 'Red') {
                     //update badge id yellow
+                    this.setState({badgeColor: 'Yellow'});
                 }
                 break;
             }
             case 'covidMuscle': {
-                if (answer.value == 'no') {
+                if (answer.value.value === 'yes' & badgeColor != 'Red') {
                     //update badge id yellow
+                    this.setState({badgeColor: 'Yellow'});
                 }
                 break;
             }
             case 'covidTaste': {
-                if (answer.value == 'no') {
+                if (answer.value.value === 'yes' & badgeColor != 'Red') {
                     //update badge id yellow
+                    this.setState({badgeColor: 'Yellow'});
                 }
                 break;
             }
-            case 'covidNause': {
-                if (answer.value == 'no') {
+            case 'covidNausea': {
+                if (answer.value.value === 'yes' & badgeColor != 'Red') {
                     //update badge id yellow
+                    this.setState({badgeColor: 'Yellow'});
                 }
                 break;
             }
             default:
-                //badge id green
-                break;
+              break;
         }
+        //console.log(badgeColor);
+        //badge id green
     }
+
+    /*
+    //badge id green
+    console.log('checking green');
+    if ((badgeColor !=  'Red') & (badgeColor != 'Yellow') & (badgeColor != '')){
+      this.setState({badgeColor: 'Green'});
+    }
+    */
 
     renderPreviousButton(onPress, enabled) {
         return (

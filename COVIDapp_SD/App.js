@@ -27,8 +27,9 @@ import {
 } from './components/navbuttons';
 
 //firebase connection
-
-//import firebaseApp from './firebase.js'; //this import might  be wrong, import firebaseApp?
+import * as firebase from 'firebase';
+import '@react-native-firebase/app';
+import '@react-native-firebase/database';
 
 //import screens
 import Questionnaire from './screens/Questionnaire';
@@ -40,10 +41,39 @@ import LoginScreen from './screens/LoginScreen';
 
 const Stack = createStackNavigator();
 
+//get keys and whatnot from hidden env file
+import {
+  API_KEY,
+  AUTH_DOMAIN,
+  DATABASE_URL,
+  PROJ_ID,
+  STORAGE_BUCKET,
+  MESS_ID,
+  APP_ID,
+  MEAS_ID,
+} from '@env';
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: {API_KEY},
+  authDomain: {AUTH_DOMAIN},
+  databaseURL: {DATABASE_URL},
+  projectId: {PROJ_ID},
+  storageBucket: {STORAGE_BUCKET},
+  messagingSenderId: {MESS_ID},
+  appId: {APP_ID},
+  measurementId: {MEAS_ID},
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
-    // this.database = firebase.database().ref();
+    //this.database = firebase.database().ref('/Users');
+    //console.log(this.database.child('Brian'));
   }
 
   render() {
@@ -61,6 +91,7 @@ class App extends Component {
             name="HomePage"
             component={HomePage}
             options={{headerShown: false}}
+            initialParams={{badgeId: ''}}
           />
           <Stack.Screen
             name="Questionnaire"
@@ -68,9 +99,14 @@ class App extends Component {
             options={{headerShown: true}}
           />
           <Stack.Screen
+            name="CompletedQuestionnaire"
+            component={CompletedQuestionnaire}
+            options={{headerShown: true}}
+          />
+          <Stack.Screen
             name="Status"
             component={Status}
-            options={{headerShown: true}}
+            options={{headerShown: false}}
           />
           <Stack.Screen name="Settings" component={Settings} />
         </Stack.Navigator>
