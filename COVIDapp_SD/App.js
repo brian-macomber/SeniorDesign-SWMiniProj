@@ -54,7 +54,7 @@ import {
 } from '@env';
 
 // Initialize Firebase
-const firebaseConfig = {
+var firebaseConfig = {
   apiKey: {API_KEY},
   authDomain: {AUTH_DOMAIN},
   databaseURL: {DATABASE_URL},
