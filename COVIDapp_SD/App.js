@@ -29,7 +29,7 @@ import {
 //firebase connection
 import * as firebase from 'firebase';
 import '@react-native-firebase/app';
-import '@react-native-firebase/database';
+import database from '@react-native-firebase/database';
 
 //import screens
 import Questionnaire from './screens/Questionnaire';
@@ -53,13 +53,15 @@ import {
   MEAS_ID,
 } from '@env';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
-    //this.database = Database.database().ref('/Users');
-    //console.log(this.database.child('Brian'));
-
+    this.database = database()
+      .ref('/Users')
+      .on('U12345678', (snapshot) => {
+        console.log('User data: ', snapshot.val());
+      });
+    // console.log(this.database.child('U12345678'));
   }
 
   render() {
