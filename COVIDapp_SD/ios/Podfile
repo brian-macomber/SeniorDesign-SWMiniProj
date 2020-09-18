@@ -10,6 +10,8 @@ target 'COVIDapp_SD' do
 
   target 'COVIDapp_SDTests' do
     inherit! :complete
+    install! : 'cocoapods',
+            :deterministic_uuids => false
     # Pods for testing
   end
 
@@ -35,3 +37,8 @@ target 'COVIDapp_SD-tvOS' do
     # Pods for testing
   end
 end
+
+pod 'Firebase'
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
