@@ -47,9 +47,8 @@ static void InitializeFlipper(UIApplication *application) {
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-  if ([FIRApp defaultApp] == nil) {
-    [FIRApp configure];
-  }
+  [FIRApp configure];
+  self.ref = [[FIRDatabase database] reference];
   
   return YES;
 }
