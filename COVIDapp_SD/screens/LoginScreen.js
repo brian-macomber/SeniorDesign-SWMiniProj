@@ -29,6 +29,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import auth from '@react-native-firebase/auth';
 import {CLIENT_ID, IOS_CLIENT_ID} from '@env';
+import database from '@react-native-firebase/database';
 
 import {
   GoogleSignin,
@@ -40,6 +41,10 @@ export default () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState([]);
   const navigation = useNavigation();
+
+  const db = database();
+
+  // const {userID} = this.props.route.params;
 
   _signIn = async () => {
     try {
@@ -99,46 +104,42 @@ export default () => {
   };
 
   return (
-    <>
-      <View style={styles.container}>
-        <ImageBackground
-          source={require('backgrounds/appiphoneloginnb.png')}
-          resizeMode="stretch"
-          style={{width: '100%', height: '100%', flex: 1}}>
-          <View style={styles.sectionContainer}>
-            {!loggedIn && (
-              <GoogleSigninButton
-                style={{width: 192, height: 48, top: 584}}
-                size={GoogleSigninButton.Size.Wide}
-                color={GoogleSigninButton.Color.Dark}
-                onPress={this._signIn}
+    <View style={styles.container}>
+      <ImageBackground
+        source={require('backgrounds/appiphoneloginnb.png')}
+        resizeMode="stretch"
+        style={{width: '100%', height: '100%', flex: 1}}>
+        <View style={styles.sectionContainer}>
+          {!loggedIn && (
+            <GoogleSigninButton
+              style={{width: 192, height: 48, top: 584}}
+              size={GoogleSigninButton.Size.Wide}
+              color={GoogleSigninButton.Color.Dark}
+              onPress={this._signIn}
+            />
+          )}
+        </View>
+        <View style={styles.buttonContainer}>
+          {!user && <Text> You are currently logged out</Text>}
+          {user && (
+            <View>
+              <Text style={{fontSize: 16}}>Welcome {user.displayName}</Text>
+              <Button
+                style={styles.buttonContainer}
+                onPress={this.signOut}
+                title="Log Out"
+                color="red"></Button>
+              <HomeButton
+                title="Go To Home"
+                onPress={() => {
+                  navigation.navigate('HomePage');
+                }}
               />
-            )}
-          </View>
-          <View style={styles.buttonContainer}>
-            {!user && (
-              <Text> You are currently logged out</Text>
-            )}
-            {user && (
-              <View>
-                <Text style={{fontSize: 16}}>
-                  Welcome {user.displayName}
-                </Text>
-                <Button
-                  style={styles.buttonContainer}
-                  onPress={this.signOut}
-                  title="Log Out"
-                  color="red"></Button>
-                <HomeButton
-                  title="Go To Home"
-                  onPress={() => navigation.navigate('HomePage')}
-                />
-              </View>
-            )}
-          </View>
-        </ImageBackground>
-      </View>
-    </>
+            </View>
+          )}
+        </View>
+      </ImageBackground>
+    </View>
   );
 };
 
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignSelf: 'center',
-    top: '65%'
+    top: '65%',
   },
   logoutButton: {
     alignSelf: 'center',

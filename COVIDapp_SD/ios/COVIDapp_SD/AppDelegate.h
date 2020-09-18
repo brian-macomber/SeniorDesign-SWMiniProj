@@ -4,7 +4,11 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate>
 
-@property (nonatomic, strong) UIWindow *window;
+@property(nonatomic, strong) UIWindow *window;
+
+@property(strong, nonatomic) FIRDatabaseReference *ref;
+
+//self.ref = [[FIRDatabase database] reference];
 
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 

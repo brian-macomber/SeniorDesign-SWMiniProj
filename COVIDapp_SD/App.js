@@ -29,7 +29,7 @@ import {
 //firebase connection
 import * as firebase from 'firebase';
 import '@react-native-firebase/app';
-import '@react-native-firebase/database';
+import database from '@react-native-firebase/database';
 
 //import screens
 import Questionnaire from './screens/Questionnaire';
@@ -53,13 +53,32 @@ import {
   MEAS_ID,
 } from '@env';
 
-// Initialize Firebase
-
 class App extends Component {
   constructor(props) {
     super(props);
-
+    this.database = database().ref('/Users');
+    database()
+      .ref('/Users/user2')
+      .update({
+        name: 'Carlos',
+        age: 21,
+      })
+      .then(() => console.log('Data set.'));
   }
+
+  // User({userId}) {
+  //   useEffect(() => {
+  //     const onValueChange = database()
+  //       .ref(`/users/${userId}`)
+  //       .on('value', (snapshot) => {
+  //         console.log('User data: ', snapshot.val());
+  //       });
+
+  //     // Stop listening for updates when no longer required
+  //     return () =>
+  //       database().ref(`/users/${userId}`).off('value', onValueChange);
+  //   }, [userId]);
+  // }
 
   render() {
     return (
@@ -71,6 +90,7 @@ class App extends Component {
             options={{
               headerShown: false,
             }}
+            intiialParams={{userID: ''}}
           />
           <Stack.Screen
             name="HomePage"

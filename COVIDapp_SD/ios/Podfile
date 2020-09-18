@@ -2,15 +2,18 @@ require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 platform :ios, '10.0'
+install!  'cocoapods',
+            :deterministic_uuids => false,
+            :integrate_targets => false
 
 target 'COVIDapp_SD' do
   config = use_native_modules!
 
-  #pods for app Firebase
+  pod 'Firebase', '~> 6.30.0'
+  pod 'GoogleUtilities', '~> 6.7.2'
+  pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  pod 'Firebase/Core'
-  pod 'Firebase'
 
   use_react_native!(:path => config["reactNativePath"])
 
@@ -37,6 +40,3 @@ target 'COVIDapp_SD-tvOS' do
     # Pods for testing
   end
 end
-
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
